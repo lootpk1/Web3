@@ -10,9 +10,8 @@ app = Flask(__name__) # create the application instance :)
 app.config.from_object(__name__) # load config from this file , flaskr.py
 
 # connect to the given database using Mongo
-connect(
-    'tumblelog'
-)
+connect('patrick')
+
 class User(Document):
     username = StringField(max_length=50)
     password = StringField(max_length=50)
