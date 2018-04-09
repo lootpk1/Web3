@@ -19,12 +19,17 @@ class User(Document):
 newUser = User(username='test', password='test').save()
 
 # Load default config and override config from an environment variable
-
+app.config.update(dict(
+    DATABASE=os.path.join(app.root_path, 'flaskr.db'),
+    SECRET_KEY='development key',
+    USERNAME='admin',
+    PASSWORD='default'
+))
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
 @app.route('/')
 def show_entries():
-    return render_template('show_entries.html', dataList = dataList)
+    return render_template('show_entries.html')
    
 @app.route('/add', methods=['POST'])
 def add_entry():
