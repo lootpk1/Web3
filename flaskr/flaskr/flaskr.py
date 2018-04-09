@@ -17,7 +17,7 @@ class User(Document):
     username = StringField(max_length=50)
     password = StringField(max_length=50)
 
-newUser = User(, username='test', password='test').save()
+newUser = User(username='test', password='test').save()
 
 
 @app.route('/')
