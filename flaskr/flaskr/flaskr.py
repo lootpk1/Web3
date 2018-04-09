@@ -11,7 +11,7 @@ app.config.from_object(__name__) # load config from this file , flaskr.py
 
 # connect to the given database using Mongo
 connect(
-    'web3Data'
+    'tumblelog'
 )
 class User(Document):
     username = StringField(max_length=50)
