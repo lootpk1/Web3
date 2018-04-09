@@ -13,11 +13,40 @@ app.config.from_object(__name__) # load config from this file , flaskr.py
 connect(
     'web3Data'
 )
+class User(Document):
+    username = StringField(max_length=50)
+    password = StringField(max_length=50)
 
-# class in mongo, start by defining the class then adding a 'Document' argument
-# the argument is the database collection location of the document you are providing for output
-class TestData(Document):
-    email = StringField(required=True)
-    first_name = StringField(max_length=50)
-    last_name = StringField(max_length=50)
+newUser = User(, username='test', password='test').save()
 
+
+@app.route('/')
+def show_entries():
+    return render_template('show_entries.html', dataList = dataList)
+   
+@app.route('/add', methods=['POST'])
+def add_entry():
+    if not session.get('logged_in'):
+        abort(401)
+    flash('New entry was successfully posted')
+    return redirect(url_for('show_entries'))
+   
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != newUser.username:
+            error = 'Invalid username'
+        elif request.form['password'] != newUser.password:
+            error = 'Invalid password'
+        else:
+            session['logged_in'] = True
+            flash('You were logged in')
+            return redirect(url_for('show_entries'))
+    return render_template('login.html', error=error)
+   
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    flash('You were logged out')
+    return redirect(url_for('show_entries'))
