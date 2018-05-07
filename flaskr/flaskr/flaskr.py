@@ -6,7 +6,7 @@ from mongoengine import *
 
 #The next couple lines will create the actual application instance and initialize it with the config from the same file in flaskr.py:
 	 
-app = Flask(__name__) # create the application instance :)
+app = Flask(__name__, static_url_path='assets') # create the application instance :)
 app.config.from_object(__name__) # load config from this file , flaskr.py
 
 # connect to the given database using Mongo
@@ -26,7 +26,6 @@ app.config.update(dict(
     PASSWORD='default'
 ))
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
-app.config['STATIC_FOLDER'] = "assets"
 
 @app.route('/')
 def show_entries():
