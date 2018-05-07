@@ -26,6 +26,7 @@ app.config.update(dict(
     PASSWORD='default'
 ))
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
+app.config['STATIC_FOLDER'] = "assets"
 
 @app.route('/')
 def show_entries():
