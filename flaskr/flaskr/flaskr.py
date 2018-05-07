@@ -29,7 +29,8 @@ app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
 @app.route('/')
 def show_entries():
-    return render_template('show_entries.html')
+# changed to index.html for the bootstrap page 
+    return render_template('index.html')
    
 @app.route('/add', methods=['POST'])
 def add_entry():
