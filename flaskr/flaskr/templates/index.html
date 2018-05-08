@@ -11,7 +11,7 @@
 
     <!-- Bootstrap core CSS -->
 	<!-- Changed here to the line below for the access of all the css in the /assests folder -->
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/css/bootstrap.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.css') }}">
     <!--external css-->
     <link href="{{ url_for('static', filename='assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/zabuto_calendar.css') }}">
@@ -22,7 +22,7 @@
     <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='assets/css/style-responsive.css') }}" rel="stylesheet">
 
-    <script src="assets/js/chart-master/Chart.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/chart-master/Chart.js') }}"></script>
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
