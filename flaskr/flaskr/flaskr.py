@@ -20,6 +20,7 @@ newUser = User(username='test', password='test').save()
 
 # Load default config and override config from an environment variable
 app.config.update(dict(
+	STATIC_FOLDER='/assets',
     DATABASE=os.path.join(app.root_path, 'flaskr.db'),
     SECRET_KEY='development key',
     USERNAME='admin',
