@@ -1,7 +1,7 @@
 # all the imports
 import os
 import sqlite3
-from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
+from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, jsonify
 from mongoengine import *
 
 #The next couple lines will create the actual application instance and initialize it with the config from the same file in flaskr.py:
