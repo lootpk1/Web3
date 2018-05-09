@@ -52,7 +52,7 @@ def show_entries():
 @app.route('/')
 def data():
 	create_data()
-    return render_template('index.html', unemploymentData = unemploymentData)
+	return render_template('index.html', unemploymentData = unemploymentData)
 	
 @app.route('/add', methods=['POST'])
 def add_entry():
