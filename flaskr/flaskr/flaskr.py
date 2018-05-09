@@ -16,6 +16,24 @@ class User(Document):
     username = StringField(max_length=50)
     password = StringField(max_length=50)
 
+class UnemploymentRate(Document):
+	country = StringField(max_length=50)
+	year = IntField(min_value=None, max_value=None)
+	unemploymentPercent = IntField(min_value=None, max_value=None)
+	
+unemploymentData = []
+def create_data():
+    with open('data/web3Data.csv') as File:
+        reader = csv.DictReader(File, delimiter=',', quotechar=',',
+                            quoting=csv.QUOTE_MINIMAL)
+        for line in reader:
+            tempCountry = (line["country"])
+			tempYear = (["year"])
+			tempunemploymentPercent = (["unemploymentPercent"])
+
+            unemploymentData.append(UnemploymentRate(country=tempCountry, year=tempYear, unemploymentPercent=tempunemploymentPercent).save())	
+
+
 newUser = User(username='test', password='test').save()
 
 # Load default config and override config from an environment variable
