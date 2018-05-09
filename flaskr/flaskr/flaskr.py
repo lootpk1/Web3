@@ -34,9 +34,6 @@ def create_data():
 
 
 newUser = User(username='test', password='test').save()
-def display():
-	country = UnemploymentRate.country
-	return render_template('index.html', country=country)
 	
 # Load default config and override config from an environment variable
 app.config.update(dict(
@@ -54,7 +51,8 @@ def show_entries():
 	
 @app.route('/display')
 def displayRoute():
-	display()
+	country = UnemploymentRate.country
+	return render_template('index.html', country=country)
 
 @app.route('/data')
 def data():
