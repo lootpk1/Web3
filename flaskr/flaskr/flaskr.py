@@ -51,8 +51,8 @@ def show_entries():
 	
 @app.route('/display')
 def displayRoute():
-	country = UnemploymentRate.country
-	return render_template('index.html', country=country)
+	country = UnemploymentRate.objects
+	return jsonify(country)
 
 @app.route('/data')
 def data():
