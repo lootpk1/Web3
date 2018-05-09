@@ -28,8 +28,8 @@ def create_data():
                             quoting=csv.QUOTE_MINIMAL)
         for line in reader:
             tempCountry = (line["country"])
-			tempYear = (["year"])
-			tempunemploymentPercent = (["unemploymentPercent"])
+			tempYear = (line["year"])
+			tempunemploymentPercent = (line["unemploymentPercent"])
 			unemploymentData.append(UnemploymentRate(country=tempCountry, year=tempYear, unemploymentPercent=tempunemploymentPercent).save())	
 
 
