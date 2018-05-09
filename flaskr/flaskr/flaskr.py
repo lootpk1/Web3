@@ -22,7 +22,7 @@ class User(Document):
 class UnemploymentRate(Document):
 	country = StringField(max_length=50)
 	year = IntField(min_value=None, max_value=None)
-	unemploymentPercent = IntField(min_value=None, max_value=None)
+	unemploymentPercent = Float()
 	
 
 def create_data():
