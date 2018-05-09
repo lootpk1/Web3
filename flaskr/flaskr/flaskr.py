@@ -34,7 +34,10 @@ def create_data():
 
 
 newUser = User(username='test', password='test').save()
-
+def display():
+	country = UnemploymentRate.country
+	return render_template('index.html', country=country)
+	
 # Load default config and override config from an environment variable
 app.config.update(dict(
     DATABASE=os.path.join(app.root_path, 'flaskr.db'),
@@ -48,12 +51,16 @@ app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 def show_entries():
 # changed to index.html for the bootstrap page 
     return render_template('index.html')
+	
+@app.route('/display')
+def displayRoute()
+	display()
 
 @app.route('/data')
 def data():
 	create_data()
 	return render_template('index.html', unemploymentData = unemploymentData)
-	
+
 @app.route('/add', methods=['POST'])
 def add_entry():
     if not session.get('logged_in'):
