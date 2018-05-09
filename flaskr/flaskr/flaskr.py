@@ -49,7 +49,7 @@ def show_entries():
 # changed to index.html for the bootstrap page 
     return render_template('index.html')
 
-@app.route('/')
+@app.route('/data')
 def data():
 	create_data()
 	return render_template('index.html', unemploymentData = unemploymentData)
