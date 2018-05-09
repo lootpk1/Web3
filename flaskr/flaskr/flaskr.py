@@ -53,7 +53,7 @@ def show_entries():
     return render_template('index.html')
 	
 @app.route('/display')
-def displayRoute()
+def displayRoute():
 	display()
 
 @app.route('/data')
