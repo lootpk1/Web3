@@ -22,8 +22,9 @@ class UnemploymentRate(Document):
 	year = IntField(min_value=None, max_value=None)
 	unemploymentPercent = IntField(min_value=None, max_value=None)
 	
-unemploymentData = []
+
 def create_data():
+	UnemploymentData = []
     with open('data/web3Data.csv') as File:
         reader = csv.DictReader(File, delimiter=',', quotechar=',',
                             quoting=csv.QUOTE_MINIMAL)
@@ -31,7 +32,8 @@ def create_data():
 			tempCountry = (line["country"])
 			tempYear = (line["year"])
 			tempunemploymentPercent = (line["unemploymentPercent"])
-			unemploymentData.append(UnemploymentRate(country=tempCountry, year=tempYear, unemploymentPercent=tempunemploymentPercent).save())	
+			UnemploymentData.append(UnemploymentRate(country=tempCountry, year=tempYear, unemploymentPercent=tempunemploymentPercent).save())
+	return UnemploymentData
 
 
 newUser = User(username='test', password='test').save()
@@ -52,12 +54,12 @@ def show_entries():
 	
 @app.route('/display')
 def displayRoute():
-	UnemploymentData = UnemploymentData.objects
+	UnemploymentData = create_data()
 	return json.dumps(UnemploymentData)
 
 @app.route('/data')
 def data():
-	create_data()
+	UnemploymentData = create_data()
 	return render_template('index.html', unemploymentData = unemploymentData)
 
 @app.route('/add', methods=['POST'])
