@@ -52,7 +52,7 @@ def show_entries():
 @app.route('/display')
 def displayRoute():
 	country = UnemploymentRate.objects
-	return jsonify(({'country': country}))
+	return json.dumps(country)
 
 @app.route('/data')
 def data():
