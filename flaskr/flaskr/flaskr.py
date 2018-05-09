@@ -3,6 +3,7 @@ import os
 import csv
 import json
 import sqlite3
+import logging
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, jsonify
 from mongoengine import *
 
@@ -27,9 +28,10 @@ class UnemploymentRate(Document):
 def create_data():
 	UnemploymentData = []
 	with open('data/web3Data.csv') as File:
-		reader = csv.DictReader(File, delimiter=',', quotechar=',',
+		reader = csv.DictReader(File, ('country', 'year', 'unemploymentPercent'), delimiter=',', quotechar=',',
 							quoting=csv.QUOTE_MINIMAL)
 		for line in reader:
+			logging.warning(line)
 			tempCountry = (line["country"])
 			tempYear = (line["year"])
 			tempunemploymentPercent = (line["unemploymentPercent"])
