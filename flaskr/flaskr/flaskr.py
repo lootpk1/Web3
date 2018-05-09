@@ -30,8 +30,7 @@ def create_data():
             tempCountry = (line["country"])
 			tempYear = (["year"])
 			tempunemploymentPercent = (["unemploymentPercent"])
-
-            unemploymentData.append(UnemploymentRate(country=tempCountry, year=tempYear, unemploymentPercent=tempunemploymentPercent).save())	
+			unemploymentData.append(UnemploymentRate(country=tempCountry, year=tempYear, unemploymentPercent=tempunemploymentPercent).save())	
 
 
 newUser = User(username='test', password='test').save()
