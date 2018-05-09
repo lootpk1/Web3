@@ -52,8 +52,8 @@ def show_entries():
 	
 @app.route('/display')
 def displayRoute():
-	UnemploymentRate = UnemploymentRate.objects
-	return json.dumps(UnemploymentRate)
+	UnemploymentData = UnemploymentData.objects
+	return json.dumps(UnemploymentData)
 
 @app.route('/data')
 def data():
