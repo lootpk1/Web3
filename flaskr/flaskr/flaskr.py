@@ -27,7 +27,7 @@ def create_data():
         reader = csv.DictReader(File, delimiter=',', quotechar=',',
                             quoting=csv.QUOTE_MINIMAL)
         for line in reader:
-            tempCountry = (line["country"])
+			tempCountry = (line["country"])
 			tempYear = (line["year"])
 			tempunemploymentPercent = (line["unemploymentPercent"])
 			unemploymentData.append(UnemploymentRate(country=tempCountry, year=tempYear, unemploymentPercent=tempunemploymentPercent).save())	
