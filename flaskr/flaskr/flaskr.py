@@ -32,6 +32,7 @@ def create_data():
 		reader = csv.DictReader(File, ('country', 'year', 'unemploymentPercent'), delimiter=',', quotechar=',',
 							quoting=csv.QUOTE_MINIMAL)
 		i = 0
+# make equal 1?	
 		for line in reader:
 			logging.warning(line)
 			tempCountry = (line["country"])
