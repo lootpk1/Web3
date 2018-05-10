@@ -27,6 +27,7 @@ class UnemploymentRate(Document):
 
 def create_data():
 	UnemploymentData = []
+	UnemploymentDict = {}
 	with open('data/web3Data.csv') as File:
 		reader = csv.DictReader(File, ('country', 'year', 'unemploymentPercent'), delimiter=',', quotechar=',',
 							quoting=csv.QUOTE_MINIMAL)
@@ -36,7 +37,8 @@ def create_data():
 			tempYear = (line["year"])
 			tempunemploymentPercent = (line["unemploymentPercent"])
 			UnemploymentData.append(UnemploymentRate(country=tempCountry, year=tempYear, unemploymentPercent=tempunemploymentPercent).save())
-	return UnemploymentData
+			UnemploymentDict.update({"country": tempCountry, "year": tempYear, "unemploymentPercent": unemploymentPercent})
+	return UnemploymentData, UnemploymentDict
 
 
 newUser = User(username='test', password='test').save()
@@ -57,8 +59,8 @@ def show_entries():
 	
 @app.route('/display')
 def displayRoute():
-	UnemploymentData = create_data()
-	return json.dumps(UnemploymentData)
+	UnemploymentData, UnemploymentDict = create_data()
+	return json.dumps(UnemploymentDict)
 
 @app.route('/data')
 def data():
