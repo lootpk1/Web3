@@ -37,7 +37,7 @@ def create_data():
 			tempYear = (line["year"])
 			tempunemploymentPercent = (line["unemploymentPercent"])
 			UnemploymentData.append(UnemploymentRate(country=tempCountry, year=tempYear, unemploymentPercent=tempunemploymentPercent).save())
-			UnemploymentDict.update({"country": tempCountry, "year": tempYear, "unemploymentPercent": unemploymentPercent})
+			UnemploymentDict.update({"country": tempCountry, "year": tempYear, "unemploymentPercent": tempunemploymentPercent})
 	return UnemploymentData, UnemploymentDict
 
 
