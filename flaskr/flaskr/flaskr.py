@@ -5,6 +5,7 @@ import json
 import sqlite3
 import logging
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, jsonify
+from sqlalchemy import Table, Column, Float, Integer, String, MetaData, ForeignKey
 from mongoengine import *
 
 #The next couple lines will create the actual application instance and initialize it with the config from the same file in flaskr.py:
