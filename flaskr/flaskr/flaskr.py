@@ -31,13 +31,15 @@ def create_data():
 	with open('data/web3Data.csv') as File:
 		reader = csv.DictReader(File, ('country', 'year', 'unemploymentPercent'), delimiter=',', quotechar=',',
 							quoting=csv.QUOTE_MINIMAL)
+		i = 0
 		for line in reader:
 			logging.warning(line)
 			tempCountry = (line["country"])
 			tempYear = (line["year"])
 			tempunemploymentPercent = (line["unemploymentPercent"])
 			UnemploymentData.append(UnemploymentRate(country=tempCountry, year=tempYear, unemploymentPercent=tempunemploymentPercent).save())
-			UnemploymentDict.update({"country": tempCountry, "year": tempYear, "unemploymentPercent": tempunemploymentPercent})
+			UnemploymentDict.update({str(i): {"country": tempCountry, "year": tempYear, "unemploymentPercent": tempunemploymentPercent}})
+			i = i + 1
 	return UnemploymentData, UnemploymentDict
 
 
