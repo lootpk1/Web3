@@ -326,13 +326,6 @@
 <!-- **********************************************************************************************************************************************************
 GRAPH
 *********************************************************************************************************************************************************** -->  
-<script>
-var country;
-$.get("/display", function(response){
-    country = response.country;
-    console.log(country);
-});
-</script>
 
 					<div class="row mt">
                       <!--CUSTOM CHART START -->
@@ -523,7 +516,15 @@ $.get("/display", function(response){
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     </script>
-  
+
+<!-- The script that will import the data using JQuery Ajax-->
+	<script>
+var country;
+$.get("/display", function(response){
+    country = response.country;
+    console.log(country);
+});
+	</script>
 
   </body>
 </html>
