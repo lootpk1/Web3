@@ -531,7 +531,7 @@ GRAPH
 				
 				for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
 			  d.total = t;
-				var data = {"columns":columns,"data":[d]};
+				var data = [d];
 				
 			  var keys = data.columns.slice(1);
 
