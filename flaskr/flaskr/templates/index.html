@@ -519,12 +519,20 @@ GRAPH
 
 <!-- The script that will import the data using JQuery Ajax-->
 	<script>
-		var country;
-		$.get("/display", function(data){
-			$( "body" )
-				.append( "Country: " + data.country ) // John
-				console.log(country) 
-			}, "json" );
+		$.ajax({ 
+			type: 'GET', 
+			url: '/display', 
+			data: { get_param: 'country' }, 
+			dataType: 'json',
+			success: function (data) { 
+				console.log(data)
+				$.each(data, function(index, element) {
+					$('body').append($('<div>', {
+						text: element.name
+					}));
+				});
+			}
+		});
 	</script>
 
   </body>
