@@ -529,11 +529,11 @@ GRAPH
 				var d = {"year":"1981","Canada":20000,"New Zealand":500};
 				var columns = ["year","Canada","New Zealand"];
 				
-				for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+				for (i = 0, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
 			  d.total = t;
 				var data = {"columns":columns,"data":[d]};
 				
-			  var keys = data.columns.slice(1);
+			  var keys = data.columns.slice(0);
 
 			  data.data.sort(function(a, b) { return b.total - a.total; });
 			  x.domain(data.data.map(function(d) { return d.year; }));
