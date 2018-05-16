@@ -27,8 +27,6 @@ class UnemploymentRate(Document):
 	
 
 def create_data():
-	UnemploymentData = []
-	UnemploymentDict = {}
 	with open('data/web3Data.csv') as File:
 		reader = csv.DictReader(File, delimiter=',')
 							
@@ -62,8 +60,8 @@ def show_entries():
 	
 @app.route('/display')
 def displayRoute():
-	create_data()
-	return "success"
+	data = UnemploymentRate.objects
+	return data.to_json()
 
 @app.route('/data')
 def data():
