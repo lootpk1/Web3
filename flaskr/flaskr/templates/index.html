@@ -527,14 +527,27 @@ GRAPH
 			success: function (response) { 				
 				var columns = ["year"];
 				var data = [];
+				var yearData = {};
 				
 				$.each(response, function(i,e){
 					var country = e.country;
-					columns.push(country);
-					var d = {};
+					columns.push(country);					
+					$.each(e.data, function(k,v){
+						if(yearData[k] != null)
+						{
+							yearData[k][country] = v;
+						}
+						else
+						{
+							yearData[k] = {};
+							yearData[k][country] = v;							
+						}
+					});					
 				});
-				console.log(response);
-				var d = {"year":"1981","Canada":20000,"New Zealand":500};				
+				
+				console.log(yearData);
+				
+				//var d = {"year":"1981","Canada":20000,"New Zealand":500};				
 				
 				//var columns = ["year","Canada","New Zealand"];
 				
