@@ -519,7 +519,7 @@ GRAPH
 
 <!-- The script that will import the data using JQuery Ajax-->
 	<script>
-		$.ajax({ 
+		/*$.ajax({ 
 			type: 'GET', 
 			url: '/display', 
 			data: { get_param: 'country' }, 
@@ -527,13 +527,13 @@ GRAPH
 			success: function (response) { 				
 				
 				var d = {"year":"1981","Canada":20000,"New Zealand":500};
-				var columns = ["year","Canada","New Zealand","total"];
+				var columns = ["year","Canada","New Zealand"];
 				
-				for (i = 0, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+				for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
 			  d.total = t;
 				var data = {"columns":columns,"data":[d]};
 				
-			  var keys = data.columns.slice(0);
+			  var keys = data.columns.slice(1);
 
 			  data.data.sort(function(a, b) { return b.total - a.total; });
 			  x.domain(data.data.map(function(d) { return d.year; }));
@@ -591,7 +591,7 @@ GRAPH
 				  .attr("dy", "0.32em")
 				  .text(function(d) { return d; });
 			}
-		});
+		});*/
 		
 		
 	</script>
@@ -621,6 +621,73 @@ var y = d3.scaleLinear()
 
 var z = d3.scaleOrdinal()
     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+d3.csv("{{ url_for('static', filename='data.csv') }}", function(d, i, columns) {
+  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+  d.total = t;
+  return d;
+}, function(error, data) {
+console.log(data);
+  if (error) throw error;
+
+  var keys = data.columns.slice(1);
+
+  data.sort(function(a, b) { return b.total - a.total; });
+  x.domain(data.map(function(d) { return d.State; }));
+  y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
+  z.domain(keys);
+
+  g.append("g")
+    .selectAll("g")
+    .data(d3.stack().keys(keys)(data))
+    .enter().append("g")
+      .attr("fill", function(d) { return z(d.key); })
+    .selectAll("rect")
+    .data(function(d) { return d; })
+    .enter().append("rect")
+      .attr("x", function(d) { return x(d.data.State); })
+      .attr("y", function(d) { return y(d[1]); })
+      .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+      .attr("width", x.bandwidth());
+
+  g.append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+  g.append("g")
+      .attr("class", "axis")
+      .call(d3.axisLeft(y).ticks(null, "s"))
+    .append("text")
+      .attr("x", 2)
+      .attr("y", y(y.ticks().pop()) + 0.5)
+      .attr("dy", "0.32em")
+      .attr("fill", "#000")
+      .attr("font-weight", "bold")
+      .attr("text-anchor", "start")
+      .text("Population");
+
+  var legend = g.append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    .data(keys.slice().reverse())
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend.append("rect")
+      .attr("x", width - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", z);
+
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d) { return d; });
+});
 
 </script>
 
