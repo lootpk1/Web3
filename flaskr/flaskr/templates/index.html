@@ -349,9 +349,8 @@ var x = d3.scaleBand()
 var y = d3.scaleLinear()
     .rangeRound([height, 0]);
 
-var z = d3.scale.linear().domain([1,length])
-      .interpolate(d3.interpolateHcl)
-      .range([d3.rgb("#007AFF"), d3.rgb('#FFF500')]);
+var z = d3.scaleOrdinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
 </script>
 
