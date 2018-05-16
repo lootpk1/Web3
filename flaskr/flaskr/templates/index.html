@@ -350,11 +350,7 @@ var y = d3.scaleLinear()
     .rangeRound([height, 0]);
 
 var z = d3.scaleOrdinal()
-    .range([
-    d3.hsl(-100, 0.95, 0.52),
-    d3.hsl(  80, 1.15, 0.62),
-    d3.hsl( 0, 0.55, 0.52)]
-  );
+    .range([d3.hcl("hsl(207, 44%, 49%)").darker());
 
 </script>
 
