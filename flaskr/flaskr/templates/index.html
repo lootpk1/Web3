@@ -519,7 +519,7 @@ GRAPH
 
 <!-- The script that will import the data using JQuery Ajax-->
 	<script>
-		/*$.ajax({ 
+		$.ajax({ 
 			type: 'GET', 
 			url: '/display', 
 			data: { get_param: 'country' }, 
@@ -530,14 +530,14 @@ GRAPH
 				var columns = ["year","Canada","New Zealand"];
 				
 				for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
-			  d.total = t;
-				var data = {"columns":columns,"data":[d]};
+				d.total = t;
+				var data = [d,columns:columns];
 				
 			  var keys = data.columns.slice(1);
 
-			  data.data.sort(function(a, b) { return b.total - a.total; });
-			  x.domain(data.data.map(function(d) { return d.year; }));
-			  y.domain([0, d3.max(data.data, function(d) { return d.total; })]).nice();
+			  data.sort(function(a, b) { return b.total - a.total; });
+			  x.domain(data.map(function(d) { return d.year; }));
+			  y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
 			  z.domain(keys);
 
 			  g.append("g")
@@ -591,7 +591,7 @@ GRAPH
 				  .attr("dy", "0.32em")
 				  .text(function(d) { return d; });
 			}
-		});*/
+		});
 		
 		
 	</script>
@@ -621,7 +621,7 @@ var y = d3.scaleLinear()
 
 var z = d3.scaleOrdinal()
     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-
+/*
 d3.csv("{{ url_for('static', filename='data.csv') }}", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
   d.total = t;
@@ -687,7 +687,7 @@ console.log(data);
       .attr("y", 9.5)
       .attr("dy", "0.32em")
       .text(function(d) { return d; });
-});
+});*/
 
 </script>
 
