@@ -27,18 +27,18 @@ class UnemploymentRate(Document):
 	
 
 def create_data():
-	with open('data/web3Data.csv') as File:
+	with open('data/reported_maleria_cases.csv') as File:
 		reader = csv.DictReader(File, delimiter=',')
 							
 		for line in reader:
 			tempCountry = line["country"]
 			countryData = {}
-			for i in range(1981,2005):
+			for i in range(1989,2007):
 				year = str(i)
-				tempunemploymentPercent = line[year]
-				countryData[year] = tempunemploymentPercent
+				reported_cases = line[year]
+				countryData[year] = reported_cases
 				
-			UnemploymentRate(country=tempCountry,data=countryData).save()
+			MaleriaCases(country=tempCountry,data=countryData).save()
 	return "Success"
 
 
@@ -60,7 +60,7 @@ def show_entries():
 	
 @app.route('/display')
 def displayRoute():
-	data = UnemploymentRate.objects
+	data = MaleriaCases.objects
 	return data.to_json()
 
 @app.route('/data')
