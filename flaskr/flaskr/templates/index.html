@@ -527,7 +527,7 @@ GRAPH
 			success: function (response) { 				
 				
 				var d = {"year":"1981","Canada":20000,"New Zealand":500};
-				var columns = ["year","Canada","New Zealand"];
+				var columns = ["year","Canada","New Zealand","total"];
 				
 				for (i = 0, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
 			  d.total = t;
