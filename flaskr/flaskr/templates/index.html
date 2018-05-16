@@ -350,6 +350,7 @@ var y = d3.scaleLinear()
     .rangeRound([height, 0]);
 
 var z = d3.scaleOrdinal()
+	.interpolate(d3.interpolateHcl)
     .range([d3.rgb("#007AFF"), d3.rgb('#FFF500')]);
 
 </script>
