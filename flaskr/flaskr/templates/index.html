@@ -558,7 +558,7 @@ GRAPH
 				
 				//var columns = ["year","Canada","New Zealand"];
 				$.each(data, function(i,d){
-					for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+					for (i = 0, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
 					d.total = t;				
 				});
 				data["columns"] = columns;
