@@ -350,7 +350,11 @@ var y = d3.scaleLinear()
     .rangeRound([height, 0]);
 
 var z = d3.scaleOrdinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+    .range([
+    d3.hsl(-100, 0.95, 0.52),
+    d3.hsl(  80, 1.15, 0.62),
+    d3.hsl( 0, 0.55, 0.52)]
+  );
 
 </script>
 
