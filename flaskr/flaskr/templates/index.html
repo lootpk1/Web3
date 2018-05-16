@@ -545,8 +545,15 @@ GRAPH
 					});					
 				});
 				
-				console.log(yearData);
+				$.each(yearData, function(i,e){
+					var obj = {"year":i};
+					$.each(e, function(k,v){
+						obj[k] = v;
+					});
+					data.push(obj);
+				});
 				
+				console.log(data);
 				//var d = {"year":"1981","Canada":20000,"New Zealand":500};				
 				
 				//var columns = ["year","Canada","New Zealand"];
