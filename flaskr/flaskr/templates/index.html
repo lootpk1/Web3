@@ -525,9 +525,18 @@ GRAPH
 			data: { get_param: 'country' }, 
 			dataType: 'json',
 			success: function (response) { 				
+				var columns = ["year"];
+				var data = [];
 				
-				var d = {"year":"1981","Canada":20000,"New Zealand":500};
-				var columns = ["year","Canada","New Zealand"];
+				$.each(response, function(i,e){
+					var country = e.country;
+					columns.push(country);
+					var d = {};
+				});
+				console.log(response);
+				var d = {"year":"1981","Canada":20000,"New Zealand":500};				
+				
+				//var columns = ["year","Canada","New Zealand"];
 				
 				for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
 				d.total = t;

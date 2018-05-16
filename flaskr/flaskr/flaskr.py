@@ -21,27 +21,27 @@ class User(Document):
 
 class UnemploymentRate(Document):
 	country = StringField(max_length=50)
-	year = StringField(max_length=50)
-	unemploymentPercent = StringField(max_length=50)
+	data = DictField()
+	#year = StringField(max_length=50)
+	#unemploymentPercent = StringField(max_length=50)
 	
 
 def create_data():
 	UnemploymentData = []
 	UnemploymentDict = {}
 	with open('data/web3Data.csv') as File:
-		reader = csv.DictReader(File, ('country', 'year', 'unemploymentPercent'), delimiter=',', quotechar=',',
-							quoting=csv.QUOTE_MINIMAL)
-		i = 0
-# make equal 1?	
+		reader = csv.DictReader(File, delimiter=',')
+							
 		for line in reader:
-			logging.warning(line)
-			tempCountry = (line["country"])
-			tempYear = (line["year"])
-			tempunemploymentPercent = (line["unemploymentPercent"])
-			UnemploymentData.append(UnemploymentRate(country=tempCountry, year=tempYear, unemploymentPercent=tempunemploymentPercent).save())
-			UnemploymentDict.update({str(i): {"country": tempCountry, "year": tempYear, "unemploymentPercent": tempunemploymentPercent}})
-			i = i + 1
-	return UnemploymentData, UnemploymentDict
+			tempCountry = line["country"]
+			countryData = {}
+			for i in range(1981,2005):
+				year = str(i)
+				tempunemploymentPercent = line[year]
+				countryData[year] = tempunemploymentPercent
+				
+			UnemploymentRate(country=tempCountry,data=countryData).save()
+	return "Success"
 
 
 newUser = User(username='test', password='test').save()
