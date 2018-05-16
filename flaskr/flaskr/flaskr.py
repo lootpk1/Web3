@@ -19,7 +19,7 @@ class User(Document):
 	username = StringField(max_length=50)
 	password = StringField(max_length=50)
 
-class UnemploymentRate(Document):
+class MaleriaCases(Document):
 	country = StringField(max_length=50)
 	data = DictField()
 	#year = StringField(max_length=50)
