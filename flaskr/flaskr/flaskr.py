@@ -62,13 +62,13 @@ def show_entries():
 	
 @app.route('/display')
 def displayRoute():
-	UnemploymentData, UnemploymentDict = create_data()
-	return json.dumps(UnemploymentDict)
+	create_data()
+	return "success"
 
 @app.route('/data')
 def data():
-	UnemploymentData = create_data()
-	return render_template('index.html', unemploymentData = unemploymentData)
+	create_data()
+	return render_template('index.html')
 
 @app.route('/add', methods=['POST'])
 def add_entry():
