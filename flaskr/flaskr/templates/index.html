@@ -596,13 +596,15 @@
 				.data(keys.slice())
 				.enter().append("g")
 				//.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-				//Somethig below to do with getting all the keys to show on the right hand side
+				//Something below to do with getting all the keys to show on the right hand side
 				  .attr("transform", function(d, i) { 
 					if(i/40==0){
-						d = 0;
+						i = 0;
+						d = d + 1;
 					}
 				  
-					return "translate(0," + i * 10 + ")"; 
+					return "translate(0," + i * 20 + ")"; 
+					console.log(i);
 					console.log(d);
 					
 				});
