@@ -592,7 +592,8 @@
 				// removed the reverse .data(keys.slice().reverse()) 
 				.data(keys.slice())
 				.enter().append("g")
-				  .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+				//.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+				  .attr("transform", function(d, i) { return "translate(0," + i * 40 + ")"; });
 
 			  legend.append("rect")
 				  .attr("x", width - 19)
@@ -602,8 +603,7 @@
 
 			  legend.append("text")
 				  .attr("x", width - 24)
-				  //.attr("y", 9.5)
-				  .attr("y", 30)
+				  .attr("y", 9.5)
 				  .attr("dy", "0.32em")
 				  .text(function(d) { return d; });
 			}
