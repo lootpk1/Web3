@@ -337,9 +337,11 @@
 
 		var svg = d3.select("svg"),
 		//margin = {top: 20, right: 20, bottom: 30, left: 50},
-			margin = {top: 100, right: 100, bottom: 100, left: 100},
+			margin = {top: 20, right: 20, bottom: 30, left: 50},
 			width = +svg.attr("width") - margin.left - margin.right,
 			height = +svg.attr("height") - margin.top - margin.bottom,
+			//g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			// margin.left has the co-ordinates of the left padding of the keys
 			g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 		var x = d3.scaleBand()
@@ -595,7 +597,22 @@
 				.enter().append("g")
 				//.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 				//Somethig below to do with getting all the keys to show on the right hand side
-				  .attr("transform", function(d, i) { return "translate(0," + i * 10 + ")"; });
+				  .attr("transform", function(d, i) { 
+					if(i/40==0){
+						d = 0;
+					}
+				  else if(){
+				  
+				  }
+				  
+					return "translate(0," + i * 10 + ")"; 
+					
+					
+				});
+				  
+				  //for 0 -39 when / 40 your quotient will be 0
+				  //for 40 - 79 when / 40 your q will be 1
+				  
 
 			  legend.append("rect")
 				  .attr("x", width - 19)
