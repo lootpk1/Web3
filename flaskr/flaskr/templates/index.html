@@ -336,7 +336,8 @@
 		<script>
 
 		var svg = d3.select("svg"),
-			margin = {top: 20, right: 20, bottom: 30, left: 50},
+		//margin = {top: 20, right: 20, bottom: 30, left: 50},
+			margin = {top: 20, right: 0, bottom: 30, left: 50},
 			width = +svg.attr("width") - margin.left - margin.right,
 			height = +svg.attr("height") - margin.top - margin.bottom,
 			g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -593,7 +594,8 @@
 				.data(keys.slice())
 				.enter().append("g")
 				//.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-				  .attr("transform", function(d, i) { return "translate(0," + i * 2 + ")"; });
+				//Somethig below to do with getting all the keys to show on the right hand side
+				  .attr("transform", function(d, i) { return "translate(0," + i * 10 + ")"; });
 
 			  legend.append("rect")
 				  .attr("x", width - 19)
