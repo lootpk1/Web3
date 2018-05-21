@@ -569,6 +569,9 @@
 				  .attr("transform", "translate(0," + height + ")")
 				  .call(d3.axisBottom(x));
 
+				  console.log(y, y.ticks(), y.ticks().pop());
+				  
+				  
 			  g.append("g")
 				  .attr("class", "axis")
 				  .call(d3.axisLeft(y).ticks(null, "s"))
