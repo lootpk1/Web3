@@ -597,13 +597,18 @@
 				//Something below to do with getting all the keys to show on the right hand side
 				  .attr("transform", function(d, i) { 
 					var divide = 40;
+					var x = 0;
 					if(Math.floor(i/divide) == 0)
 					{
 						console.log(d, "I am in the first lot");
+						x = 0;
 					}
-					else
+					else{
 						console.log(d, "I am in the second lot");
-					return "translate(0," + i * 20 + ")"; 
+						x = 40;
+					}
+						
+					return "translate(" + x +"," + i * 20 + ")"; 
 					
 				});
 
