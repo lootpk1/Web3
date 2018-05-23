@@ -611,21 +611,20 @@
 					return "translate(" + x +"," + i%40 * 20 + ")"; 
 					
 				});
-				console.log(width);
 
 				  
 				  //for 0 -39 when / 40 your quotient will be 0
 				  //for 40 - 79 when / 40 your q will be 1
 				  
-
+				//.attr("x", width - 19) How they did the key plotting
 			  legend.append("rect")
-				  .attr("x", width - 19)
+				  .attr("x", width + 30)
 				  .attr("width", 19)
 				  .attr("height", 19)
 				  .attr("fill", z);
 
 			  legend.append("text")
-				  .attr("x", width - 24)
+				  .attr("x", width + 24)
 				  .attr("y", 9.5)
 				  .attr("dy", "0.32em")
 				  .text(function(d) { return d; });
