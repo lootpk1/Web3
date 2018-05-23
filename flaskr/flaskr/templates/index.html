@@ -596,7 +596,7 @@
 				//.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 				//Something below to do with getting all the keys to show on the right hand side
 				  .attr("transform", function(d, i) { 
-					if(i == 10){
+					if((i/40==0) && (i != 0)){
 						console.log("Its been divided");
 						console.log(i);
 						console.log(d);
