@@ -347,14 +347,15 @@
 				//.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 				//Something below to do with getting all the keys to show on the right hand side
 				  .attr("transform", function(d, i) { 
-					var divide = 40;
+					var firstdivide = 40;
+					var seconddivide = 80;
 					var x = 0;
 					if(Math.floor(i/divide) == 0)
 					{
 						console.log(d, "I am in the first lot");
 						x = -120;
 					}
-					else if
+					else if (Math.floor(i/seconddivide) == 0)
 					{
 						console.log(d, "I am in the second lot");
 						x = 0;
