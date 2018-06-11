@@ -13,9 +13,11 @@ var data = require('./data/reported_maleria_cases.csv');
 
 // Start of sequlize config
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('database', 'username', 'password', {
+//Have created a db with the name "test"
+const sequelize = new Sequelize('test', 'lootpk1', 'p@ssw0rd', {
   host: 'localhost',
-  dialect: 'mysql'|'sqlite'|'postgres'|'mssql',
+  //dialect: 'mysql'|'sqlite'|'postgres'|'mssql',
+  dialect: 'mysql',
 
   pool: {
     max: 5,
@@ -23,9 +25,6 @@ const sequelize = new Sequelize('database', 'username', 'password', {
     acquire: 30000,
     idle: 10000
   },
-
-  // SQLite only
-  storage: 'path/to/database.sqlite',
 
   // http://docs.sequelizejs.com/manual/tutorial/querying.html#operators
   operatorsAliases: false
@@ -71,7 +70,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 /* Follwoing is me*/
-app.use('/data', data);
+//app.use('/data', data);
 
 
 // catch 404 and forward to error handler
