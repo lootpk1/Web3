@@ -1,0 +1,8 @@
+ "test": {
+    "username": "lootpk1",
+    "password": null,
+    "database": "test",
+    "host": "10.25.100.65",
+    "port": 3000,
+    "dialect": "postgres"
+  }
