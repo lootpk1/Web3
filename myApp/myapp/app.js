@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 /* Follwing vars are mine, data is the path to the csv file to read in */
-var data = require('./data/reported_maleria_cases.csv');
+//var data = require('./data/reported_maleria_cases.csv');
 
 // Start of sequlize config
 const Sequelize = require('sequelize');
