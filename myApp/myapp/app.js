@@ -14,7 +14,7 @@ var users = require('./routes/users');
 // Start of sequlize config
 const Sequelize = require('sequelize');
 //Have created a db with the name "test"
-const sequelize = new Sequelize('test', 'lootpk1', 'p@ssw0rd', {
+const sequelize = new Sequelize('test', 'lootpk1', 'P@ssw0rd', {
   host: 'localhost',
   //dialect: 'mysql'|'sqlite'|'postgres'|'mssql',
   dialect: 'postgres',
