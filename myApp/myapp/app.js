@@ -17,7 +17,7 @@ const Sequelize = require('sequelize');
 const sequelize = new Sequelize('test', 'lootpk1', 'p@ssw0rd', {
   host: 'localhost',
   //dialect: 'mysql'|'sqlite'|'postgres'|'mssql',
-  dialect: 'mysql',
+  dialect: 'postgres',
 
   pool: {
     max: 5,
