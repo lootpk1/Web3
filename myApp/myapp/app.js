@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require('fs');
+var csv = rquire('fast-csv');
 
 
 var index = require('./routes/index');
@@ -38,19 +40,26 @@ sequelize
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
-const User = sequelize.define('user', {
-  username: Sequelize.STRING,
-  birthday: Sequelize.DATE
+const Data = sequelize.define('Data', {
+  country: Sequelize.STRING,
+  data: Sequelize.TEXT
 });
 
+class getData() {
 sequelize.sync()
-  .then(() => User.create({
-    username: 'janedoe',
-    birthday: new Date(1980, 6, 20)
-  }))
-  .then(jane => {
-    console.log(jane.toJSON());
-  });
+	var stream = fs.createReadStream("my.csv");
+ 
+	var csvStream = csv()
+    .on("data", function(data){
+		//for loop here
+		// still have to add a page to call the getData()
+         console.log(data);
+    })
+    .on("end", function(){
+         console.log("done");
+    });
+}
+stream.pipe(csvStream);
 // End of sequlize config 
  
 var app = express();
