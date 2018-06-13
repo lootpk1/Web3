@@ -40,7 +40,7 @@ sequelize
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
-const Data = sequelize.define('Data', {
+function Data = sequelize.define('Data', {
   country: Sequelize.STRING,
   data: Sequelize.TEXT
 });
