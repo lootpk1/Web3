@@ -48,7 +48,7 @@ const Data = sequelize.define('Data', {
 
 function getData() {
 sequelize.sync()
-	var stream = fs.createReadStream("data/reported_maleria_cases.csv");
+	var stream = fs.createReadStream('data/reported_maleria_cases.csv');
  
 	var csvStream = csv()
     .on("data", function(data){
