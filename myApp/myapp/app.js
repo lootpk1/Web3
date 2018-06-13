@@ -12,7 +12,7 @@ var stream = require('stream');
 var index = require('./routes/index');
 var users = require('./routes/users');
 /* Follwing vars are mine, data is the path to the csv file to read in */
-//var data = require('./routes/Data');
+var data = require('./routes/Data');
 
 // Start of sequlize config
 const Sequelize = require('sequelize');
@@ -81,7 +81,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 /* Following is me*/
-//app.use('/data', data);
+app.use('/data', data);
 
 
 // catch 404 and forward to error handler
