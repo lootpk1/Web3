@@ -59,8 +59,9 @@ sequelize.sync()
     .on("end", function(){
          console.log("done");
     });
+	stream.pipe(csvStream);
 }
-stream.pipe(csvStream);
+
 // End of sequlize config 
  
 var app = express();
