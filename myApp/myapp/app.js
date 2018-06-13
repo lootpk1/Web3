@@ -12,7 +12,7 @@ var stream = require('stream');
 var index = require('./routes/index');
 var users = require('./routes/users');
 /* Follwing vars are mine, data is the path to the csv file to read in */
-var data = require('./routes/Data');
+var data = require('./routes/data');
 
 // Start of sequlize config
 const Sequelize = require('sequelize');
