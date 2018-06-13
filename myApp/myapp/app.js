@@ -48,13 +48,13 @@ const Data = sequelize.define('Data', {
 
 function getData() {
 sequelize.sync()
-	var stream = fs.createReadStream("my.csv");
+	var stream = fs.createReadStream("data/reported_maleria_cases.csv");
  
 	var csvStream = csv()
     .on("data", function(data){
 		//for loop here
 		//still have to add a page to call the getData()
-         console.log(data);
+        console.log(data);
     })
     .on("end", function(){
          console.log("done");
