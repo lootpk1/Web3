@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
-var csv = rquire('fast-csv');
+var csv = require('fast-csv');
 
 
 var index = require('./routes/index');
