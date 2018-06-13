@@ -52,7 +52,7 @@ sequelize.sync()
 	var csvStream = csv()
     .on("data", function(data){
 		//for loop here
-		// still have to add a page to call the getData()
+		//still have to add a page to call the getData()
          console.log(data);
     })
     .on("end", function(){
