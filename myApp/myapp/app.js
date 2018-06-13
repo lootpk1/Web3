@@ -45,7 +45,7 @@ const Data = sequelize.define('Data', {
   data: Sequelize.TEXT
 });
 
-class getData() {
+const getData() {
 sequelize.sync()
 	var stream = fs.createReadStream("my.csv");
  
