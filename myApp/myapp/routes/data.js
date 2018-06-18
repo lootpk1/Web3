@@ -9,7 +9,6 @@ var stream = require('stream');
 
 
 function getData() {
-sequelize.sync()
 	var stream = fs.createReadStream('data/reported_maleria_cases.csv');
  
 	var csvStream = csv()
