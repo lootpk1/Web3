@@ -73,10 +73,12 @@ router.get('/create', function(req, res, next) {
 });
 
 router.get('/display', function(req, res, next) {
-//differet function here to fetch data
-//res.json to return the data in a json format 
-  data = data.objects()
-  res.json('data', { title: 'Express' }); //return the data... don't render the template, just return the json
+  //differet function here to fetch data
+  //res.json to return the data in a json format 
+  //var jsonObj = JSON.parse(jsonString);
+  Data.findAll().then(data => {
+	    res.send(data); //return the data... don't render the template, just return the json
+  });
 });
 
 module.exports = router;
