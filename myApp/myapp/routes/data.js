@@ -46,7 +46,7 @@ function getData() {
 	var stream = fs.createReadStream('data/reported_maleria_cases.csv');
 	console.log("and i am now here");
 	var csvStream = csv
-	.fromString(stream, {headers : true})
+	.fromStream(stream, {headers : true})
     .on("data", function(data){
 		console.log("here????");
 		tempCountry = data["country"];
