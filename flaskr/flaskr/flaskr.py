@@ -60,12 +60,12 @@ def show_entries():
 	
 @app.route('/display')
 def displayRoute():
-	data = MaleriaCases.objects
+	data = MaleriaCases.objects #fetching data from db
 	return data.to_json()
 
 @app.route('/data')
 def data():
-	create_data()
+	create_data() #creating data from csv into the db
 	return render_template('index.html')
 
 @app.route('/add', methods=['POST'])
