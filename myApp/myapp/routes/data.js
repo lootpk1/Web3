@@ -61,7 +61,7 @@ function getData() {
 		//save this data to the db
 		Data.create({
 			country:tempCountry, 
-			data:countryData
+			data:JSON.stringify(countryData)
 		})
 		console.log("and now I am the son of here");
     })
