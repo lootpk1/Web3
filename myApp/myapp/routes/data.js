@@ -28,10 +28,8 @@ function getData() {
 		//for loop here
 		//save this data to the db
 		Data.create({
-			country:tempCountry; 
-			data:countryData;
-		}).then(data=>{
-
+			country:tempCountry, 
+			data:countryData
 		})
 			
         console.log(data);
@@ -49,7 +47,7 @@ router.get('/create', function(req, res, next) {
 router.get('/display', function(req, res, next) {
 //differet function here to fetch data
 //res.json to return the data in a json format 
-  data = Data.objects()
+  data = data.objects()
   res.json('data', { title: 'Express' }); //return the data... don't render the template, just return the json
 });
 
