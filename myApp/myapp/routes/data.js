@@ -48,9 +48,9 @@ function getData() {
 	.fromString(stream, {headers : true})
     .on("data", function(data){
 		console.log(data);
-		 tempCountry = data["country"]
+		 //tempCountry = data["country"]
 		 
-		console.log(tempCountry);
+		//console.log(tempCountry);
 			/*countryData = {}
 			for (i = 1990; i <= 2006; i++) 
 				year = str(i)
