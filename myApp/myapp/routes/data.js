@@ -49,7 +49,7 @@ function getData() {
     .on("data", function(data){
 		console.log(data);
 		console.log(tempCountry);
-		tempCountry = data["country"]
+		/* tempCountry = data["country"]
 			countryData = {}
 			for (i = 1990; i <= 2006; i++) 
 				year = str(i)
@@ -60,7 +60,7 @@ function getData() {
 		Data.create({
 			country:tempCountry, 
 			data:countryData
-		})
+		}) */
 			
         console.log(data);
     })
