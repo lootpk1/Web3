@@ -42,25 +42,27 @@ const Data = sequelize.define('Data', {
 
 
 function getData() {
+	console.log("i am now here");
 	var stream = fs.createReadStream('data/reported_maleria_cases.csv');
- 
+	console.log("and i am now here");
 	var csvStream = csv
 	.fromString(stream, {headers : true})
     .on("data", function(data){
-		tempCountry = data["country"]
-			countryData = {}
-			for (i = 1990; i <= 2006; i++) 
-				year = str(i)
-				reported_cases = data[year]
-				countryData[year] = reported_cases
+		tempCountry = data["country"];
+		countryData = {}
+		for (var i = 1990; i <= 2006; i++) {
+			year = i.toString();
+			reported_cases = data[year];
+			countryData[year] = reported_cases;
+		}
+		console.log("and now I am here part 2");
 		//for loop here
 		//save this data to the db
 		Data.create({
 			country:tempCountry, 
 			data:countryData
 		})
-			
-        console.log(data);
+		console.log("and now I am the son of here");
     })
     .on("end", function(){
          console.log("done");
