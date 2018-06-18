@@ -46,22 +46,6 @@ const Data = sequelize.define('Data', {
   data: Sequelize.TEXT
 });
 
-function getData() {
-sequelize.sync()
-	var stream = fs.createReadStream('data/reported_maleria_cases.csv');
- 
-	var csvStream = csv()
-    .on("data", function(data){
-		//for loop here
-		//still have to add a page to call the getData()
-        console.log(data);
-    })
-    .on("end", function(){
-         console.log("done");
-    });
-	stream.pipe(csvStream);
-}
-
 // End of sequlize config 
  
 var app = express();
