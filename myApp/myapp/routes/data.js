@@ -21,7 +21,7 @@ function getData() {
     .on("data", function(data){
 		tempCountry = data["country"]
 			countryData = {}
-			for i in range(1990,2006):
+			for (i = 1990; i <= 2006; i++) 
 				year = str(i)
 				reported_cases = data[year]
 				countryData[year] = reported_cases
