@@ -4,12 +4,16 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var csv = require('fast-csv');
-var sequelize = require('sequelize');
+var Sequelize = require('sequelize');
 var stream = require('stream');
 
-const Data = sequelize.define('Data', {
-  country: sequelize.STRING,
-  data: sequelize.TEXT
+//Instantiate sequelize
+var sequelize = new Sequelize('test', 'lootpk1', 'P@ssw0rd');
+
+
+const Data = Sequelize.define('Data', {
+  country: Sequelize.STRING,
+  data: Sequelize.TEXT
 });
 
 
