@@ -48,6 +48,7 @@ function getData() {
 	var csvStream = csv
 	.fromString(stream, {headers : true})
     .on("data", function(data){
+		console.log("here????");
 		tempCountry = data["country"];
 		countryData = {}
 		for (var i = 1990; i <= 2006; i++) {
