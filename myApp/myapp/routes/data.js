@@ -67,12 +67,13 @@ function getData() {
     });
 }
 /* GET data page. */
-router.get('/create', function(req, res, next) {
+router.get('/create', function(req, res) {
+	console.log("yo, i am here");
 	getData();
   res.render('data', { title: 'Express' }); //does not matter what you return/do here... NOT the display page
 });
 
-router.get('/display', function(req, res, next) {
+router.get('/display', function(req, res) {
   //differet function here to fetch data
   //res.json to return the data in a json format 
   //var jsonObj = JSON.parse(jsonString);
