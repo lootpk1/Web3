@@ -8,7 +8,31 @@ var Sequelize = require('sequelize');
 var stream = require('stream');
 
 //Instantiate sequelize
-var sequelize = new Sequelize('test', 'lootpk1', 'P@ssw0rd');
+const sequelize = new Sequelize('test', 'lootpk1', 'P@ssw0rd', {
+  host: 'localhost',
+  //dialect: 'mysql'|'sqlite'|'postgres'|'mssql',
+  dialect: 'postgres',
+
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  },
+
+  // http://docs.sequelizejs.com/manual/tutorial/querying.html#operators
+  operatorsAliases: false
+});
+// You can use the .authenticate() function like this to test the connection.
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
+
 
 
 const Data = Sequelize.define('Data', {

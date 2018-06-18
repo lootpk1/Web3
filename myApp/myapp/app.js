@@ -17,7 +17,7 @@ var data = require('./routes/data');
 // Start of sequlize config
 const Sequelize = require('sequelize');
 //Have created a db with the name "test"
-const sequelize = new Sequelize('test', 'lootpk1', 'P@ssw0rd', {
+/* const sequelize = new Sequelize('test', 'lootpk1', 'P@ssw0rd', {
   host: 'localhost',
   //dialect: 'mysql'|'sqlite'|'postgres'|'mssql',
   dialect: 'postgres',
@@ -41,7 +41,7 @@ sequelize
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
-
+ */
 
 // End of sequlize config 
  
