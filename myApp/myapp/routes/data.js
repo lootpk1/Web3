@@ -7,20 +7,38 @@ var csv = require('fast-csv');
 var sequelize = require('sequelize');
 var stream = require('stream');
 
+const Data = sequelize.define('Data', {
+  country: Sequelize.STRING,
+  data: Sequelize.TEXT
+});
+
 
 function getData() {
 	var stream = fs.createReadStream('data/reported_maleria_cases.csv');
  
-	var csvStream = csv()
+	var csvStream = csv
+	.fromString(stream, {headers : true})
     .on("data", function(data){
+		tempCountry = data["country"]
+			countryData = {}
+			for i in range(1990,2006):
+				year = str(i)
+				reported_cases = data[year]
+				countryData[year] = reported_cases
 		//for loop here
 		//save this data to the db
+		Data.create({
+			country:tempCountry; 
+			data:countryData;
+		}).then(data=>{
+
+		})
+			
         console.log(data);
     })
     .on("end", function(){
          console.log("done");
     });
-	stream.pipe(csvStream);
 }
 /* GET data page. */
 router.get('/create', function(req, res, next) {
@@ -31,6 +49,7 @@ router.get('/create', function(req, res, next) {
 router.get('/display', function(req, res, next) {
 //differet function here to fetch data
 //res.json to return the data in a json format 
+  data = Data.objects()
   res.json('data', { title: 'Express' }); //return the data... don't render the template, just return the json
 });
 
