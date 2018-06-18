@@ -1,5 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var fs = require('fs');
+var csv = require('fast-csv');
+var stream = require('stream');
+
 
 function getData() {
 sequelize.sync()
