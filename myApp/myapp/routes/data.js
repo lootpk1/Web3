@@ -5,10 +5,9 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 var csv = require('fast-csv');
 var Sequelize = require('sequelize');
-var sequelize = require('sequelize');
 var stream = require('stream');
 
-const Data = sequelize.define('Data', {
+const Data = Sequelize.define('Data', {
   country: Sequelize.STRING,
   data: Sequelize.TEXT
 });
