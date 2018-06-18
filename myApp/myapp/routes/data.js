@@ -36,7 +36,7 @@ sequelize
 
 
 const Data = sequelize.define('Data', {
-  //country: sequelize.STRING,
+  country: sequelize.TEXT,
   data: sequelize.TEXT
 });
 
@@ -47,11 +47,8 @@ function getData() {
 	var csvStream = csv
 	.fromString(stream, {headers : true})
     .on("data", function(data){
-		console.log(data);
-		 //tempCountry = data["country"]
-		 
-		//console.log(tempCountry);
-			/*countryData = {}
+		tempCountry = data["country"]
+			countryData = {}
 			for (i = 1990; i <= 2006; i++) 
 				year = str(i)
 				reported_cases = data[year]
@@ -61,9 +58,9 @@ function getData() {
 		Data.create({
 			country:tempCountry, 
 			data:countryData
-		}) 
+		})
 			
-        console.log(data);*/
+        console.log(data);
     })
     .on("end", function(){
          console.log("done");
