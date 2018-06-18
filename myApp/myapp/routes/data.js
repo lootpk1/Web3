@@ -40,6 +40,8 @@ const Data = sequelize.define('Data', {
   data: Sequelize.TEXT
 });
 
+Data.sync();
+
 
 function getData() {
 	console.log("i am now here");
