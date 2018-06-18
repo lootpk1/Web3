@@ -4,7 +4,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var csv = require('fast-csv');
-var sequelize = require('sequelize');
+var Sequelize = require('sequelize');
 var stream = require('stream');
 
 const Data = sequelize.define('Data', {
