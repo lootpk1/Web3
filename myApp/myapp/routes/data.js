@@ -36,7 +36,7 @@ sequelize
 
 
 const Data = sequelize.define('Data', {
-  country: sequelize.STRING,
+  //country: sequelize.STRING,
   data: sequelize.TEXT
 });
 
