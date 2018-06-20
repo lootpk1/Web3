@@ -324,6 +324,7 @@
 
 			  g.append("g")			
 				.selectAll("g")
+				.attr("class","patrick")
 				.data(d3.stack().keys(keys)(data))
 				.enter().append("g")
 				  .attr("fill", function(d) { return z(d.key); })
@@ -335,12 +336,20 @@
 				  .attr("height", function(d) { return y(d[0]) - y(d[1]); })
 				  <!--x.bandwidth is the width of the graph bands-->
 				  .attr("width", 30);
+				  
+				  var newWidth = d3.select("g.patrick").getBoundingClientRect().width;
+				  console.log(width, newWidth);
+				  
+				  var x2 = d3.scaleBand()
+			.rangeRound([0, width])
+			.paddingInner(0.3)
+			.align(0.1);
 			
 			<!--Manipulates the bottom axis-->
 			  g.append("g")
 				  .attr("class", "axis")
 				  .attr("transform", "translate(0," + height + ")")
-				  .call(d3.axisBottom(x - (padding*i)));
+				  .call(d3.axisBottom(x2));
 				  
 				  
 			  g.append("g")
