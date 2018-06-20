@@ -80,7 +80,7 @@ router.get('/create', function(req, res) {
 
 router.get('/display', function(req, res) {
   //differet function here to fetch data
-  //res.json to return the data in a json format 
+  //res.send to return the data in a json format 
   //var jsonObj = JSON.parse(jsonString);
   Data.findAll().then(data => {
 	    res.send(data); //return the data... don't render the template, just return the json

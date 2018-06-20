@@ -396,34 +396,35 @@ body
       $("#date-popover").hide();
       var nav = $("#" + id).data("navigation");
       var to = $("#" + id).data("to");
-      console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+      //console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
       }
     // The script that will import the data using JQuery Ajax
     script.
       $.ajax({
-      type: 'GET',
-      url: '/data/display',
-      data: { get_param: 'country' },
-      dataType: 'json',
-      success: function (response) {
-      var columns = ["year"];
-      var data = [];
-      var yearData = {};
-      $.each(response, function(i,e){
-      var country = e.country;
-      columns.push(country);
-      $.each(e.data, function(k,v){
-      if(yearData[k] != null)
-      {
-      yearData[k][country] = v;
-      }
-      else
-      {
-      yearData[k] = {};
-      yearData[k][country] = v;
-      }
-      });
-      });
+        type: 'GET',
+        url: '/data/display',
+        data: { get_param: 'country' },
+        dataType: 'json',
+        success: function (response) {
+          console.log(response);
+          var columns = ["year"];
+          var data = [];
+          var yearData = {};
+          $.each(response, function(i,e){
+            var country = e.country;
+            columns.push(country);
+            $.each(e.data, function(k,v){
+              if(yearData[k] != null)
+              {
+                yearData[k][country] = v;
+              }
+              else
+              {
+                yearData[k] = {};
+                yearData[k][country] = v;
+              }
+            });
+          });
       $.each(yearData, function(i,e){
       var obj = {"year":i};
       $.each(e, function(k,v){
@@ -487,11 +488,11 @@ body
       var x = 0;
       if(Math.floor(i/divide) == 0)
       {
-      console.log(d, "I am in the first lot");
+      //console.log(d, "I am in the first lot");
       x = -120;
       }
       else{
-      console.log(d, "I am in the second lot");
+      //console.log(d, "I am in the second lot");
       x = 0;
       }
       return "translate(" + x +"," + i%40 * 20 + ")";
