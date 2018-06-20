@@ -314,7 +314,7 @@
 				.data(function(d) { return d; })
 				.enter().append("rect")
 				  .attr("x", function(d) { return x(d.data.year); })
-				  .attr("y", function(d) { return y(d[1]); })
+				  .attr("y", function(d) { return y(d[5]); })
 				  .attr("height", function(d) { return y(d[0]) - y(d[1]); })
 				  <!--x.bandwidth is the width of the graph bands-->
 				  .attr("width", 25);
