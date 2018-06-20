@@ -413,6 +413,7 @@ body
           $.each(response, function(i,e){
             var country = e.country;
             columns.push(country);
+            e.data = JSON.parse(e.data);
             $.each(e.data, function(k,v){
               if(yearData[k] != null)
               {
@@ -426,11 +427,11 @@ body
             });
           });
       $.each(yearData, function(i,e){
-      var obj = {"year":i};
-      $.each(e, function(k,v){
-      obj[k] = v;
-      });
-      data.push(obj);
+        var obj = {"year":i};
+        $.each(e, function(k,v){
+          obj[k] = v;
+        });
+        data.push(obj);
       });
       console.log(data);
       //var d = {"year":"1981","Canada":20000,"New Zealand":500};
