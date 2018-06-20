@@ -317,11 +317,12 @@
 				  .attr("y", function(d) { return y(d[1]); })
 				  .attr("height", function(d) { return y(d[0]) - y(d[1]); })
 				  <!--x.bandwidth is the width of the graph bands-->
-				  .attr("width", x.bandwidth());
-
+				  .attr("width", 25);
+			
+			<!--Manipulates the bottom axis-->
 			  g.append("g")
 				  .attr("class", "axis")
-				  .attr("transform", "translate(0," - height + ")")
+				  .attr("transform", "translate(0," + height + ")")
 				  .call(d3.axisBottom(x));
 				  
 				  
