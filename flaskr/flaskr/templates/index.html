@@ -311,7 +311,7 @@
 				});
 				data["columns"] = columns;
 				
-				console.log(columns);
+				//console.log(columns);
 				var padding = width / columns.length;
 				
 			  var keys = data.columns.slice(1);
@@ -322,9 +322,8 @@
 			  z.domain(keys);
 			  
 
-			  g.append("g")			
-				.selectAll("g")
-				.attr("class","patrick")
+			  g.append("g").attr("class","patrick")		
+				.selectAll("g")				
 				.data(d3.stack().keys(keys)(data))
 				.enter().append("g")
 				  .attr("fill", function(d) { return z(d.key); })
