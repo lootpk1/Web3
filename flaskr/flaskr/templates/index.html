@@ -336,7 +336,7 @@
 				  <!--x.bandwidth is the width of the graph bands-->
 				  .attr("width", 30);
 				  
-				  var newWidth = d3.select("g.patrick").getBoundingClientRect().width;
+				  var newWidth = $("g.patrick")[0].getBoundingClientRect().width;
 				  console.log(width, newWidth);
 				  
 				  var x2 = d3.scaleBand()
