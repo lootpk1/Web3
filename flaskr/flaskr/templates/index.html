@@ -340,7 +340,7 @@
 				  console.log(width, newWidth);
 				  
 				  var x2 = d3.scaleBand()
-					.rangeRound([0, (newWidth/columns.length)])
+					.rangeRound([0, newWidth])
 					//value below is 0.3
 					.paddingInner(0.3)
 					.align(0.1);
