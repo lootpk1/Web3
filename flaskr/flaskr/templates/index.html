@@ -312,7 +312,7 @@
 				data["columns"] = columns;
 				
 				console.log(columns);
-				var padding = 30;
+				var padding = width / columns.length;
 				
 			  var keys = data.columns.slice(1);
 
@@ -330,7 +330,7 @@
 				.selectAll("rect")
 				.data(function(d) { return d; })
 				.enter().append("rect")
-				  .attr("x", function(d,i) { return x(d.data.year)-(padding*i); })
+				  .attr("x", function(d,i) { return x(d.data.year)- (padding*i); })
 				  .attr("y", function(d) { return y(d[1]); })
 				  .attr("height", function(d) { return y(d[0]) - y(d[1]); })
 				  <!--x.bandwidth is the width of the graph bands-->
@@ -340,7 +340,7 @@
 			  g.append("g")
 				  .attr("class", "axis")
 				  .attr("transform", "translate(0," + height + ")")
-				  .call(d3.axisBottom(x));
+				  .call(d3.axisBottom(x - (padding*i)));
 				  
 				  
 			  g.append("g")
