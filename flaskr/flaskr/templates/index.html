@@ -89,7 +89,7 @@
 		var svg = d3.select("svg"),
 		//margin = {top: 20, right: 20, bottom: 30, left: 50},
 			margin = {top: 20, right: 20, bottom: 30, left: 50},
-			width = +svg.attr("width") + margin.left - margin.right,
+			width = +svg.attr("width") - margin.left - margin.right,
 			height = +svg.attr("height") - margin.top - margin.bottom,
 			//g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 			// margin.left has the co-ordinates of the left padding of the keys
@@ -316,7 +316,8 @@
 				  .attr("x", function(d) { return x(d.data.year); })
 				  .attr("y", function(d) { return y(d[1]); })
 				  .attr("height", function(d) { return y(d[0]) - y(d[1]); })
-				  .attr("width", x.bandwidth());
+				  <!--x.bandwidth()-->
+				  .attr("width", 300);
 
 			  g.append("g")
 				  .attr("class", "axis")
