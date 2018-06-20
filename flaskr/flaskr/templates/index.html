@@ -316,12 +316,12 @@
 				  .attr("x", function(d) { return x(d.data.year); })
 				  .attr("y", function(d) { return y(d[1]); })
 				  .attr("height", function(d) { return y(d[0]) - y(d[1]); })
-				  <!--x.bandwidth()-->
-				  .attr("width", 300);
+				  <!--x.bandwidth is the width of the graph bands-->
+				  .attr("width", x.bandwidth());
 
 			  g.append("g")
 				  .attr("class", "axis")
-				  .attr("transform", "translate(0," + height + ")")
+				  .attr("transform", "translate(0," - height + ")")
 				  .call(d3.axisBottom(x));
 				  
 				  
