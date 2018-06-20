@@ -425,7 +425,7 @@ ul.sidebar-menu li {
 
 a.logo {
   font-size: 20px;
-  color: $whitefff;
+  color: $white;
   float: left;
   margin-top: 15px;
   text-transform: uppercase;
@@ -739,14 +739,14 @@ ul.top-menu > li > a {
 /* Dash Side */
 
 .ds {
-  background: $whitefff;
+  background: $white;
   padding-top: 20px;
   h4 {
     font-size: 14px;
     font-weight: 700;
   }
   h3 {
-    color: $whitefff;
+    color: $white;
     font-size: 16px;
     padding: 0 10px;
     line-height: 60px;
@@ -814,7 +814,7 @@ ul.top-menu > li > a {
 
 .box0 {
   &:hover .box1 {
-    border-bottom: 1px solid $whitefff;
+    border-bottom: 1px solid $white;
   }
   p {
     text-align: center;
@@ -825,7 +825,7 @@ ul.top-menu > li > a {
     p {
       color: #ff865c;
     }
-    background: $whitefff;
+    background: $white;
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
   }
 }
@@ -1032,7 +1032,7 @@ PANELS CONFIGURATIONS
 
 .white-panel {
   text-align: center;
-  background: $whitefff;
+  background: $white;
   color: #ccd1d9;
   p {
     margin-top: 5px;
@@ -1110,7 +1110,7 @@ PANELS CONFIGURATIONS
 /*Content Panel*/
 
 .content-panel {
-  background: $whitefff;
+  background: $white;
   box-shadow: 0px 3px 2px #aab2bd;
   padding-top: 15px;
   padding-bottom: 5px;
@@ -1622,7 +1622,7 @@ PANELS CONFIGURATIONS
 /* showcase background */
 
 .showback {
-  background: $whitefff;
+  background: $white;
   padding: 15px;
   margin-bottom: 15px;
   box-shadow: 0px 3px 2px #aab2bd;
@@ -1652,7 +1652,7 @@ PANELS CONFIGURATIONS
 }
 
 .fc-state-active .fc-button-inner {
-  background: $whiteFFF;
+  background: $white;
 }
 
 /* Gallery Configuration */
@@ -1727,7 +1727,7 @@ PANELS CONFIGURATIONS
 /* FORMS CONFIGURATION */
 
 .form-panel {
-  background: $whitefff;
+  background: $white;
   margin: 10px;
   padding: 10px;
   box-shadow: 0px 3px 2px #aab2bd;
@@ -1859,7 +1859,7 @@ label {
     &.switch-right {
       border-radius: 0 30px 30px 0;
       background-color: #bdc3c7;
-      color: $whitefff;
+      color: $white;
       text-indent: 7px;
       [class*="fui-"] {
         text-indent: 0;
