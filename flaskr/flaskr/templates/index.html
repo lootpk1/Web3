@@ -318,8 +318,7 @@
 			  y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
 			  z.domain(keys);
 
-			  g.append("g")
-				.attr("width", 200)
+			  g.append("g")			
 				.selectAll("g")
 				.data(d3.stack().keys(keys)(data))
 				.enter().append("g")
@@ -327,7 +326,7 @@
 				.selectAll("rect")
 				.data(function(d) { return d; })
 				.enter().append("rect")
-				  .attr("x", function(d) { return x(d.data.year); })
+				  .attr("x", function(d) { return x(d.data.year)-50; })
 				  .attr("y", function(d) { return y(d[1]); })
 				  .attr("height", function(d) { return y(d[0]) - y(d[1]); })
 				  <!--x.bandwidth is the width of the graph bands-->
