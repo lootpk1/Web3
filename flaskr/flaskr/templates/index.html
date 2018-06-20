@@ -341,7 +341,8 @@
 				  
 				  var x2 = d3.scaleBand()
 					.rangeRound([0, newWidth])
-					.paddingInner(0.3)
+					//value below is 0.3
+					.paddingInner(1)
 					.align(0.1);
 					
 					x2.domain(data.map(function(d) { return d.year; }));
