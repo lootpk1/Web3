@@ -340,9 +340,11 @@
 				  console.log(width, newWidth);
 				  
 				  var x2 = d3.scaleBand()
-					.rangeRound([0, width])
+					.rangeRound([0, newWidth])
 					.paddingInner(0.3)
 					.align(0.1);
+					
+					x2.domain(data.map(function(d) { return d.year; }));
 			
 			<!--Manipulates the bottom axis-->
 			  g.append("g")
