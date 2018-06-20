@@ -319,6 +319,7 @@
 			  z.domain(keys);
 
 			  g.append("g")
+				.attr("width", 200)
 				.selectAll("g")
 				.data(d3.stack().keys(keys)(data))
 				.enter().append("g")
@@ -350,7 +351,8 @@
 				  .attr("font-weight", "bold")
 				  .attr("text-anchor", "start")
 				  .text("Number of Cases Reported");
-
+				  
+				//changed to svg to seperate the graph and the keys
 			  var legend = svg.append("g")
 				  .attr("x", 200)
 				  .attr("font-family", "sans-serif")
