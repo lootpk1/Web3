@@ -292,7 +292,7 @@
 						}
 					});					
 				});
-				var maxCountry = [];
+				
 				$.each(yearData, function(i,e){
 					var obj = {"year":i};
 					$.each(e, function(k,v){
@@ -301,47 +301,10 @@
 					data.push(obj);
 				});
 				data.sort(function(a, b){return b.data-a.data});
-				var max = data[0];
-                    //console.log(max);
-                    if(max.data != ""){    
-                        data.sort(function (a,b){return b.axis-a.axis});                 
-                        data.push(data);
-                        //data.push(data);
-
-                        //make an object with both max and e.country {}, so it has the country and the highest data 
-                        var maxObj = {country:e.country,max:max.data,data}; //pass data in here so maxObj can give us the data data
-                        maxCountry.push(maxObj);
-                        //console.log(maxVal, maxCountry, "new object for max and e.country")
-                    }  
-				});                    
-
-                maxCountry.sort(function(x, y){
-                    return d3.descending(x.max, y.max);
-                })
-
-                console.log(maxCountry, "max country here");
-                var d = [];
-                //maxCountry.sort(function(a, b){return b.data-a.data});
-
-                for(var i=0;i<20;i++){ //clear the data and get it again to stop duplicates !@$!$@#$!@#$!#$#$%$%%@#$$$$
-
-                    LegendOptions.push(maxCountry[i].country); //legend options contains the countrie that have the highest data but dont contain the data 
-                    d.push(maxCountry[i].data);
-                /*
-                    //push the data too, not max data, all of them to the country 
-                    for(var j=0;j<46;j++) //46 entries per country 
-                    {
-                    LegendOptions.push(maxCountry[i].data[j].axis); //data= val, axis = year
-                   // LegendOptions.push(maxCountry[i].axis)
-                    }
-                    //console.log(LegendOptions, "leg options here")
-                    console.log(maxCountry, "max country here")
-                    */
-
-                }//will be like this, end of sort
+				//console.log(data);
+				//var d = {"year":"1981","Canada":20000,"New Zealand":500};				
 				
-				
-
+				//var columns = ["year","Canada","New Zealand"];
 				$.each(data, function(i,d){
 					for (i = 0, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
 					d.total = t;				
@@ -380,7 +343,7 @@
 				  
 				  var x2 = d3.scaleBand()
 					.rangeRound([0, newWidth ])
-					//data below is 0.3
+					//value below is 0.3
 					.paddingInner(0.7)
 					.align(0.1);
 					
