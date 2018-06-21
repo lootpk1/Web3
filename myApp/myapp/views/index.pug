@@ -1,28 +1,29 @@
 doctype html
-head
-  meta(charset='utf-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  meta(name='description' content='')
-  meta(name='author' content='Dashboard')
-  meta(name='keyword' content='Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina')
-  title DASHGUM - FREE Bootstrap Admin Template
-  // Bootstrap core CSS
-  // Changed here to the line below for the access of all the css in the /assests folder
-  link(rel='stylesheet' type='text/css' href='assets/css/bootstrap.css') 
-  // external css
-  link(href='assets/font-awesome/css/font-awesome.css' rel='stylesheet') 
-  link(rel='stylesheet' type="text/css" href='assets/css/zabuto_calendar.css')
-  link(rel='stylesheet' type="text/css" href='assets/js/gritter/css/jquery.gritter.css')
-  link(rel='stylesheet' type="text/css" href='assets/lineicons/style.css')
-  // Custom styles for this template
-  link(href='assets/css/style.css' rel="stylesheet")
-  link(href='assets/css/style-responsive.css' rel="stylesheet")
-  script(src='assets/js/chart-master/Chart.js')
-  // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
-  //if lt IE 9
-    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
-    script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
-body
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='Dashboard')
+    meta(name='keyword', content='Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina')
+    title DASHGUM - FREE Bootstrap Admin Template
+    // Bootstrap core CSS
+    // Changed here to the line below for the access of all the css in the /assests folder
+    link(rel='stylesheet', type='text/css', href='assets/css/bootstrap.css')
+    // external css
+    link(href='assets/font-awesome/css/font-awesome.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='assets/css/zabuto_calendar.css') 
+    link(rel='stylesheet', type='text/css', href='assets/js/gritter/css/jquery.gritter.css')
+    link(rel='stylesheet', type='text/css', href='assets/lineicons/style.css')
+    // Custom styles for this template
+    link(href='assets/css/style.css' , rel='stylesheet')
+    link(href='assets/css/style-responsive.css' , rel='stylesheet')
+    script(src='assets/js/chart-master/Chart.js')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body
     section#container
       //
         **********************************************************************************************************************************************************
@@ -31,15 +32,11 @@ body
       // header start
       header.header.black-bg
         .sidebar-toggle-box
-          .fa.fa-bars.tooltips(data-placement='right' data-original-title='Toggle Navigation')
+          .fa.fa-bars.tooltips(data-placement='right', data-original-title='Toggle Navigation')
         // logo start
         a.logo(href='index.html')
           b DASHGUM
         // logo end
-        .top-menu
-          ul.nav.pull-right.top-menu
-            li
-              a.logout(href='login.html') Logout
       // header end
       //
         **********************************************************************************************************************************************************
@@ -51,68 +48,6 @@ body
           // sidebar menu start
           ul#nav-accordion.sidebar-menu
             h5.centered Patrick Loots
-            li.mt
-              a.active(href='index.html')
-                i.fa.fa-dashboard
-                span Dashboard
-            li.sub-menu
-              a(href='javascript:;')
-                i.fa.fa-desktop
-                span UI Elements
-              ul.sub
-                li
-                  a(href='general.html') General
-                li
-                  a(href='buttons.html') Buttons
-                li
-                  a(href='panels.html') Panels
-            li.sub-menu
-              a(href='javascript:;')
-                i.fa.fa-cogs
-                span Components
-              ul.sub
-                li
-                  a(href='calendar.html') Calendar
-                li
-                  a(href='gallery.html') Gallery
-                li
-                  a(href='todo_list.html') Todo List
-            li.sub-menu
-              a(href='javascript:;')
-                i.fa.fa-book
-                span Extra Pages
-              ul.sub
-                li
-                  a(href='blank.html') Blank Page
-                li
-                  a(href='login.html') Login
-                li
-                  a(href='lock_screen.html') Lock Screen
-            li.sub-menu
-              a(href='javascript:;')
-                i.fa.fa-tasks
-                span Forms
-              ul.sub
-                li
-                  a(href='form_component.html') Form Components
-            li.sub-menu
-              a(href='javascript:;')
-                i.fa.fa-th
-                span Data Tables
-              ul.sub
-                li
-                  a(href='basic_table.html') Basic Table
-                li
-                  a(href='responsive_table.html') Responsive Table
-            li.sub-menu
-              a(href='javascript:;')
-                i.fa.fa-bar-chart-o
-                span Charts
-              ul.sub
-                li
-                  a(href='morris.html') Morris
-                li
-                  a(href='chartjs.html') Chartjs
           // sidebar menu end
       // sidebar end
       //
@@ -122,234 +57,109 @@ body
       // main content start
       section#main-content
         section.wrapper
-          .row
-            .col-lg-9.main-chart
-              .row.mtbox
-                .col-md-2.col-sm-2.col-md-offset-1.box0
-                  .box1
-                    span.li_heart
-                    h3 933
-                  p 933 People liked your page the last 24hs. Whoohoo!
-                .col-md-2.col-sm-2.box0
-                  .box1
-                    span.li_cloud
-                    h3 +48
-                  p 48 New files were added in your cloud storage.
-                .col-md-2.col-sm-2.box0
-                  .box1
-                    span.li_stack
-                    h3 23
-                  p You have 23 unread messages in your inbox.
-                .col-md-2.col-sm-2.box0
-                  .box1
-                    span.li_news
-                    h3 +10
-                  p More than 10 news were added in your reader.
-                .col-md-2.col-sm-2.box0
-                  .box1
-                    span.li_data
-                    h3 OK!
-                  p Your server is working perfectly. Relax &amp; enjoy.
-              // /row mt
-              .row.mt
-                // SERVER STATUS PANELS
-                .col-md-4.col-sm-4.mb
-                  .white-panel.pn.donut-chart
-                    .white-header
-                      h5 SERVER LOAD
-                    .row
-                      .col-sm-6.col-xs-6.goleft
-                        p
-                          i.fa.fa-database
-                          |  70%
-                    canvas#serverstatus01(height='120' width='120')
-                    script.
-                      var doughnutData = [
-                      {
-                      value: 70,
-                      color:"#68dff0"
-                      },
-                      {
-                      value : 30,
-                      color : "#fdfdfd"
-                      }
-                      ];
-                      var myDoughnut = new Chart(document.getElementById("serverstatus01").getContext("2d")).Doughnut(doughnutData);
-                // /col-md-4
-                .col-md-4.col-sm-4.mb
-                  .white-panel.pn
-                    .white-header
-                      h5 TOP PRODUCT
-                    .row
-                      .col-sm-6.col-xs-6.goleft
-                        p
-                          i.fa.fa-heart
-                          |  122
-                      .col-sm-6.col-xs-6
-                    .centered
-                      img(src='assets/img/product.png' width='120')
-                // /col-md-4
-                .col-md-4.mb
-                  // WHITE PANEL - TOP USER
-                  .white-panel.pn
-                    .white-header
-                      h5 TOP USER
-                    p
-                      img.img-circle(src='assets/img/ui-zac.jpg' width='80')
-                    p
-                      b Zac Snider
-                    .row
-                      .col-md-6
-                        p.small.mt MEMBER SINCE
-                        p 2012
-                      .col-md-6
-                        p.small.mt TOTAL SPEND
-                        p $ 47,60
-                // /col-md-4
-              // /row
-              .row
-                // TWITTER PANEL
-                .col-md-4.mb
-                  .darkblue-panel.pn
-                    .darkblue-header
-                      h5 DROPBOX STATICS
-                    canvas#serverstatus02(height='120' width='120')
-                    script.
-                      var doughnutData = [
-                      {
-                      value: 60,
-                      color:"#68dff0"
-                      },
-                      {
-                      value : 40,
-                      color : "#444c57"
-                      }
-                      ];
-                      var myDoughnut = new Chart(document.getElementById("serverstatus02").getContext("2d")).Doughnut(doughnutData);
-                    p April 17, 2014
-                    footer
-                      .pull-left
-                        h5
-                          i.fa.fa-hdd-o
-                          |  17 GB
-                      .pull-right
-                        h5 60% Used
-                // /col-md-4
-                .col-md-4.mb
-                  // INSTAGRAM PANEL
-                  .instagram-panel.pn
-                    i.fa.fa-instagram.fa-4x
-                    p
-                      | @THISISYOU
-                      br
-                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;5 min. ago
-                    p
-                      i.fa.fa-comment
-                      |  18 | 
-                      i.fa.fa-heart
-                      |  49
-                // /col-md-4
-                .col-md-4.col-sm-4.mb
-                  // REVENUE PANEL
-                  .darkblue-panel.pn
-                    .darkblue-header
-                      h5 REVENUE
-                    .chart.mt
-                      .sparkline(data-type='line' data-resize='true' data-height='75' data-width='90%' data-line-width='1' data-line-color='#fff' data-spot-color='#fff' data-fill-color='' data-highlight-line-color='#fff' data-spot-radius='4' data-data='[200,135,667,333,526,996,564,123,890,464,655]')
-                    p.mt
-                      b $ 17,980
-                      br
-                      | Month Income
-                // /col-md-4
-              // /row
-              // script that draws the graph
-              style.
-                .axis .domain {
-                display: none;
-                }
-              svg(width='1200' height='720')
-              script(src='https://d3js.org/d3.v4.min.js')
-              script.
-                var svg = d3.select("svg"),
-                //margin = {top: 20, right: 20, bottom: 30, left: 50},
-                margin = {top: 20, right: 20, bottom: 30, left: 50},
-                width = +svg.attr("width") - margin.left - margin.right,
-                height = +svg.attr("height") - margin.top - margin.bottom,
-                //g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-                // margin.left has the co-ordinates of the left padding of the keys
-                g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-                var x = d3.scaleBand()
-                .rangeRound([0, width])
-                .paddingInner(0.3)
-                .align(0.1);
-                var y = d3.scaleLinear()
-                .rangeRound([height, 0]);
-                var z = d3.scaleOrdinal()
-                .range(["#D33636", "#D94F4F", "#DE6868", "#E48181", "#E99B9B", "#EFB4B4", "#F4CDCD", "#FAE6E6", "#F0F342", "#F2F45A", "#F4F671", "#F6F789", "#F7F9A1", "#A8F342", "#B3F45A", "#BEF671",
-                "#C9F789", "#42F3D3", "#5AF4D9", "#73D6C4", "#8ADDCE", "#A2E4D7", "#449EC8", "#5BAACF", "#73B6D6", "#8AC2DD", "#A2CFE4", "#AF9DE1", "#C9BFE6", "#D1C8EA", "#E0DBF1", "#C379CB",
-                "#DEB8E2", "#E6A7DA", "#EEC5E6", "#E299BD"]);
-              //
-                **********************************************************************************************************************************************************
-                RIGHT SIDEBAR CONTENT
-                ***********************************************************************************************************************************************************
-              .col-lg-3.ds
-                // COMPLETED ACTIONS DONUTS CHART
-                h3 My Inspirations
-                // First Action
-                .desc
-                  .thumb
-                    span.badge.bg-theme
-                      i.fa.fa-clock-o
-                  .details
-                    a(href='https://blacktie.co/dashgum-free-dashboard/') Dashgum!
-                    |  The site I am using
-                    br
-                    p
-                // USERS ONLINE SECTION
-                h3 It&apos;s Me!
-                // First Member
-                .desc
-                  .thumb
-                    img.img-circle(src='assets/img/ui-divya.jpg' width='35px' height='35px' align='')
-                  .details
-                    p
-                      a(href='#') Patrick Loots
-                      br
-                      muted Available
-                // CALENDAR
-                #calendar.mb
-                  .panel.green-panel.no-margin
-                    .panel-body
-                      #date-popover.popover.top(style='cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;')
-                        .arrow
-                        h3.popover-title(style='disadding: none;')
-                        #date-popover-content.popover-content
-                      #my-calendar
-                // / calendar
-              // /col-lg-3
+          // main content mostly gone, leaving just the graph n here as this is the main content that is important
+          // script that draws the graph
+          style.
+            .axis .domain {
+            display: none;
+            }
+          // was width: 1200 height: 720
+          svg(width='1200', height='720')
+          script(src='https://d3js.org/d3.v4.min.js')
+          script.
+            var svg = d3.select("svg"),
+            //margin = {top: 20, right: 20, bottom: 30, left: 50},
+            margin = {top: 20, right: 20, bottom: 30, left: 50},
+            width = +svg.attr("width") - margin.left - margin.right,
+            height = +svg.attr("height") - margin.top - margin.bottom,
+            //g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            // margin.left has the co-ordinates of the left padding of the keys
+            g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            var x = d3.scaleBand()
+            .rangeRound([0, width])
+            .paddingInner(0.3)
+            .align(0.1);
+            var y = d3.scaleLinear()
+            .rangeRound([height, 0]);
+            var z = d3.scaleOrdinal()
+            .range(["#D33636", "#D94F4F", "#DE6868", "#E48181", "#E99B9B", "#EFB4B4", "#F4CDCD", "#FAE6E6", "#F0F342", "#F2F45A", "#F4F671", "#F6F789", "#F7F9A1", "#A8F342", "#B3F45A", "#BEF671",
+            "#C9F789", "#42F3D3", "#5AF4D9", "#73D6C4", "#8ADDCE", "#A2E4D7", "#449EC8", "#5BAACF", "#73B6D6", "#8AC2DD", "#A2CFE4", "#AF9DE1", "#C9BFE6", "#D1C8EA", "#E0DBF1", "#C379CB",
+            "#DEB8E2", "#E6A7DA", "#EEC5E6", "#E299BD"]);
+          //
+            **********************************************************************************************************************************************************
+            RIGHT SIDEBAR CONTENT
+            ***********************************************************************************************************************************************************
+          .col-lg-3.ds(style='float: right')
+            // COMPLETED ACTIONS DONUTS CHART
+            h3 My Inspirations
+            // First Action
+            .desc
+              .thumb
+                span.badge.bg-theme
+                  i.fa.fa-clock-o
+              .details
+                a(href='https://blacktie.co/dashgum-free-dashboard/') Dashgum!
+                |  The site I am using
+                br
+              .desc
+                .thumb
+                  span.badge.bg-theme
+                    i.fa.fa-clock-o
+                .details
+                  a(href='https://github.com/d3/d3/wiki/Gallery') D3 Graphs
+                  |  I chose the bar graph as it was easy and fit my data well
+                  br
+              .desc
+                .thumb
+                  span.badge.bg-theme
+                    i.fa.fa-clock-o
+                .details
+                  a(href='https://www.gapminder.org/data/') Data
+                  |  Data that we got to choose from to manipulate
+                  br
+            // USERS ONLINE SECTION
+            h3 It's Me!
+            // First Member
+            .desc
+              .thumb
+                img.img-circle(src='assets/img/myFace.jpg', width='35px', height='35px', align='')
+              .details
+                p
+                  a(href='#') Patrick Loots
+                  br
+                  muted Available
+            // CALENDAR
+            #calendar.mb
+              .panel.green-panel.no-margin
+                .panel-body
+                  #date-popover.popover.top(style='cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;')
+                    .arrow
+                    h3.popover-title(style='disadding: none;')
+                    #date-popover-content.popover-content
+                  #my-calendar
+            // / calendar
+          // /col-lg-3
       // main content end
       // footer start
-      footer.site-footer
+      footer.site-footer(style='margin-bottom: -70px')
         .text-center
           | 2014 - Alvarez.is
-          a.go-top(href='index.html#')
-            i.fa.fa-angle-up
       // footer end
     // js placed at the end of the document so the pages load faster
-    script(src='assets/js/jquery.js') 
+    script(src='assets/js/jquery.js')
     script(src='assets/js/jquery-1.8.3.min.js') 
-    script(src='assets/js/bootstrap.min.js')
-    //script.(class="{{ url_for('static', filename='include" type='text/javascript' src="assets/js/jquery.dcjqaccordion.2.7.js') }}")
+    script(src='assets/js/bootstrap.min.js') 
+    //script.(class='include', type='text/javascript', src='assets/js/jquery.dcjqaccordion.2.7.js') 
     script(src='assets/js/jquery.scrollTo.min.js') 
-    script(src='assets/js/jquery.nicescroll.js' type='text/javascript') 
+    script(src='assets/js/jquery.nicescroll.js', type='text/javascript') 
     script(src='assets/js/jquery.sparkline.js') 
     // common script for all pages
     script(src='assets/js/common-scripts.js') 
-    script(type='text/javascript' src='assets/js/gritter/js/jquery.gritter.js') 
-    script(type='text/javascript' src='assets/js/gritter-conf.js')
+    script(type='text/javascript', src='assets/js/gritter/js/jquery.gritter.js') 
+    script(type='text/javascrip', src='assets/js/gritter-conf.js') 
     // script for this page
     script(src='assets/js/sparkline-chart.js') 
-    script(src='assets/js/zabuto_calendar.js') }
+    script(src='assets/js/zabuto_calendar.js') 
     script(type='text/javascript').
       $(document).ready(function () {
       var unique_id = $.gritter.add({
@@ -401,52 +211,51 @@ body
     // The script that will import the data using JQuery Ajax
     script.
       $.ajax({
-        type: 'GET',
-        url: '/data/display',
-        data: { get_param: 'country' },
-        dataType: 'json',
-        success: function (response) {
-          console.log(response);
-          var columns = ["year"];
-          var data = [];
-          var yearData = {};
-          $.each(response, function(i,e){
-            var country = e.country;
-            columns.push(country);
-            e.data = JSON.parse(e.data);
-            $.each(e.data, function(k,v){
-              if(yearData[k] != null)
-              {
-                yearData[k][country] = v;
-              }
-              else
-              {
-                yearData[k] = {};
-                yearData[k][country] = v;
-              }
-            });
-          });
-      $.each(yearData, function(i,e){
-        var obj = {"year":i};
-        $.each(e, function(k,v){
-          obj[k] = v;
-        });
-        data.push(obj);
+      type: 'GET',
+      url: 'data/display',
+      data: { get_param: 'country' },
+      dataType: 'json',
+      success: function (response) {
+      var columns = ["year"];
+      var data = [];
+      var yearData = {};
+      $.each(response, function(i,e){
+      var country = e.country;
+      columns.push(country);
+      e.data = JSON.parse(e.data);
+      $.each(e.data, function(k,v){
+      if(yearData[k] != null)
+      {
+      yearData[k][country] = v;
+      }
+      else
+      {
+      yearData[k] = {};
+      yearData[k][country] = v;
+      }
       });
-      console.log(data);
-      //var d = {"year":"1981","Canada":20000,"New Zealand":500};
-      //var columns = ["year","Canada","New Zealand"];
+      });
+      $.each(yearData, function(i,e){
+      var obj = {"year":i};
+      $.each(e, function(k,v){
+      obj[k] = v;
+      });
+      data.push(obj);
+      });
       $.each(data, function(i,d){
       for (i = 0, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
       d.total = t;
       });
       data["columns"] = columns;
+      var padding = width / columns.length;
+      //var padding = width / columns.length;
+      console.log(padding);
       var keys = data.columns.slice(1);
       data.sort(function(a, b) { return b.total - a.total; });
       x.domain(data.map(function(d) { return d.year; }));
       y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
       z.domain(keys);
-      g.append("g")
+      g.append("g").attr("class","patrick")
       .selectAll("g")
       .data(d3.stack().keys(keys)(data))
       .enter().append("g")
@@ -454,25 +263,37 @@ body
       .selectAll("rect")
       .data(function(d) { return d; })
       .enter().append("rect")
-      .attr("x", function(d) { return x(d.data.year); })
+      //.attr("x", function(d,i) { return x(d.data.year) - (padding*i); })
+      .attr("x", function(d,i) { return x(d.data.year) - (25 * i); })
       .attr("y", function(d) { return y(d[1]); })
       .attr("height", function(d) { return y(d[0]) - y(d[1]); })
-      .attr("width", x.bandwidth());
+      <!--x.bandwidth is the width of the graph bands-->
+      .attr("width", 30);
+      var newWidth = $("g.patrick")[0].getBoundingClientRect().width;
+      console.log(width, (newWidth / 1.3));
+      var x2 = d3.scaleBand()
+      .rangeRound([0, newWidth ])
+      //value below is 0.3
+      .paddingInner(0.7)
+      .align(0.1);
+      x2.domain(data.map(function(d) { return d.year; }));
+      <!--Manipulates the bottom axis-->
       g.append("g")
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+      .call(d3.axisBottom(x2));
       g.append("g")
       .attr("class", "axis")
       .call(d3.axisLeft(y).ticks(null, "s"))
       .append("text")
       .attr("x", 2)
-      .attr("y", y(y.ticks().pop()) + 0.5)
+      .attr("y", y(y.ticks().pop()) + 0.1)
       .attr("dy", "0.32em")
       .attr("fill", "#000")
       .attr("font-weight", "bold")
       .attr("text-anchor", "start")
-      .text("Population");
+      .text("Number of Cases Reported");
+      //changed to svg to seperate the graph and the keys
       var legend = svg.append("g")
       .attr("x", 200)
       .attr("font-family", "sans-serif")
@@ -485,16 +306,26 @@ body
       //.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
       //Something below to do with getting all the keys to show on the right hand side
       .attr("transform", function(d, i) {
-      var divide = 40;
+      var firstdivide = 40;
+      var seconddivide = 80;
       var x = 0;
-      if(Math.floor(i/divide) == 0)
+      if(Math.floor(i/firstdivide) == 0)
       {
       //console.log(d, "I am in the first lot");
-      x = -120;
+      //x = -120;
+      x = -190
       }
-      else{
+      else if (Math.floor(i/seconddivide) == 0)
+      {
       //console.log(d, "I am in the second lot");
-      x = 0;
+      //x = 0;
+      x = -70
+      }
+      else
+      {
+      //console.log(d, "I am in the third lot");
+      //x = 120;
+      x = +50;
       }
       return "translate(" + x +"," + i%40 * 20 + ")";
       });
