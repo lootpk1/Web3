@@ -309,11 +309,11 @@
 				
 				var padding = width / columns.length;
 				//var padding = width / columns.length;
-				console.log(padding);
+				//console.log(padding);
 				
 			  var keys = data.columns.slice(1);
 
-			  data.sort(function(a, b) { console.log(a,b); return b.year - a.year; });
+			  data.sort(function(a, b) { return b.year - a.year; });
 			  x.domain(data.map(function(d) { return d.year; }));
 			  y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
 			  z.domain(keys);
