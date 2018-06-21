@@ -33,7 +33,7 @@ def create_data():
 		for line in reader:
 			tempCountry = line["country"]
 			countryData = {}
-			for i in range(1990,2008):
+			for i in range(1990,2006):
 				year = str(i)
 				reported_cases = line[year]
 				countryData[year] = reported_cases
