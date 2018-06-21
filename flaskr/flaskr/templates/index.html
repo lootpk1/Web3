@@ -337,7 +337,7 @@
 				  .attr("width", 30);
 				  
 				  var newWidth = $("g.patrick")[0].getBoundingClientRect().width;
-				  console.log(width, newWidth);
+				  console.log(width, (newWidth / 1.5));
 				  
 				  var x2 = d3.scaleBand()
 					.rangeRound([0, newWidth])
