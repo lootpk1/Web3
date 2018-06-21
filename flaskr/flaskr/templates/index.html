@@ -331,7 +331,8 @@
 				.selectAll("rect")
 				.data(function(d) { return d; })
 				.enter().append("rect")
-				  .attr("x", function(d,i) { return x(d.data.year) - (padding*i); })
+				  //.attr("x", function(d,i) { return x(d.data.year) - (padding*i); })
+				  .attr("x", function(d,i) { return x(d.data.year) - 5; })
 				  .attr("y", function(d) { return y(d[1]); })
 				  .attr("height", function(d) { return y(d[0]) - y(d[1]); })
 				  <!--x.bandwidth is the width of the graph bands-->
