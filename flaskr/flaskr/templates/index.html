@@ -342,7 +342,7 @@
 				  console.log(width, (newWidth / 1.3));
 				  
 				  var x2 = d3.scaleBand()
-					.rangeRound([0, (newWidth / 1.3)])
+					.rangeRound([0, newWidth ])
 					//value below is 0.3
 					.paddingInner(0.3)
 					.align(0.1);
@@ -353,7 +353,7 @@
 			  g.append("g")
 				  .attr("class", "axis")
 				  .attr("transform", "translate(0," + height + ")")
-				  .call(d3.axisBottom(x));
+				  .call(d3.axisBottom(x2));
 				  
 				  
 			  g.append("g")
