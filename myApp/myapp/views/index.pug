@@ -222,6 +222,7 @@ html(lang='en')
       $.each(response, function(i,e){
       var country = e.country;
       columns.push(country);
+	  e.data = JSON.parse(e.data);
       $.each(e.data, function(k,v){
       if(yearData[k] != null)
       {
