@@ -330,17 +330,17 @@
 				.selectAll("rect")
 				.data(function(d) { return d; })
 				.enter().append("rect")
-				  .attr("x", function(d,i) { return x(d.data.year)- (padding*i); })
+				  .attr("x", function(d,i) { return x(d.data.year) - (padding*i); })
 				  .attr("y", function(d) { return y(d[1]); })
 				  .attr("height", function(d) { return y(d[0]) - y(d[1]); })
 				  <!--x.bandwidth is the width of the graph bands-->
 				  .attr("width", 30);
 				  
 				  var newWidth = $("g.patrick")[0].getBoundingClientRect().width;
-				  console.log(width, (newWidth / 1.5));
+				  console.log(width, (newWidth / 1.8));
 				  
 				  var x2 = d3.scaleBand()
-					.rangeRound([0, (newWidth / 1.5)])
+					.rangeRound([0, (newWidth / 1.8)])
 					//value below is 0.3
 					.paddingInner(0.3)
 					.align(0.1);
