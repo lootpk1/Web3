@@ -301,10 +301,8 @@
 					data.push(obj);
 				});
 				data.sort(function(a, b){return b.data-a.data});
-				//console.log(data);
-				//var d = {"year":"1981","Canada":20000,"New Zealand":500};				
-				
-				//var columns = ["year","Canada","New Zealand"];
+				console.log(data);
+
 				$.each(data, function(i,d){
 					for (i = 0, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
 					d.total = t;				
