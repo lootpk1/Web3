@@ -1,0 +1,346 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='Dashboard')
+    meta(name='keyword', content='Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina')
+    title DASHGUM - FREE Bootstrap Admin Template
+    // Bootstrap core CSS
+    // Changed here to the line below for the access of all the css in the /assests folder
+    link(rel='stylesheet', type='text/css', href='assets/css/bootstrap.css')
+    // external css
+    link(href='assets/font-awesome/css/font-awesome.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='assets/css/zabuto_calendar.css') 
+    link(rel='stylesheet', type='text/css', href='assets/js/gritter/css/jquery.gritter.css')
+    link(rel='stylesheet', type='text/css', href='assets/lineicons/style.css')
+    // Custom styles for this template
+    link(href='assets/css/style.css' , rel='stylesheet')
+    link(href='assets/css/style-responsive.css' , rel='stylesheet')
+    script(src='assets/js/chart-master/Chart.js')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body
+    section#container
+      //
+        **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        ***********************************************************************************************************************************************************
+      // header start
+      header.header.black-bg
+        .sidebar-toggle-box
+          .fa.fa-bars.tooltips(data-placement='right', data-original-title='Toggle Navigation')
+        // logo start
+        a.logo(href='index.html')
+          b DASHGUM
+        // logo end
+      // header end
+      //
+        **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        ***********************************************************************************************************************************************************
+      // sidebar start
+      aside
+        #sidebar.nav-collapse
+          // sidebar menu start
+          ul#nav-accordion.sidebar-menu
+            h5.centered Patrick Loots
+          // sidebar menu end
+      // sidebar end
+      //
+        **********************************************************************************************************************************************************
+        MAIN CONTENT
+        ***********************************************************************************************************************************************************
+      // main content start
+      section#main-content
+        section.wrapper
+          // main content mostly gone, leaving just the graph n here as this is th emain content that is important
+          // script that draws the graph
+          style.
+            .axis .domain {
+            display: none;
+            }
+          // was width: 1200 height: 720
+          svg(width='1200', height='720')
+          script(src='https://d3js.org/d3.v4.min.js')
+          script.
+            var svg = d3.select("svg"),
+            //margin = {top: 20, right: 20, bottom: 30, left: 50},
+            margin = {top: 20, right: 20, bottom: 30, left: 50},
+            width = +svg.attr("width") - margin.left - margin.right,
+            height = +svg.attr("height") - margin.top - margin.bottom,
+            //g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            // margin.left has the co-ordinates of the left padding of the keys
+            g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            var x = d3.scaleBand()
+            .rangeRound([0, width])
+            .paddingInner(0.3)
+            .align(0.1);
+            var y = d3.scaleLinear()
+            .rangeRound([height, 0]);
+            var z = d3.scaleOrdinal()
+            .range(["#D33636", "#D94F4F", "#DE6868", "#E48181", "#E99B9B", "#EFB4B4", "#F4CDCD", "#FAE6E6", "#F0F342", "#F2F45A", "#F4F671", "#F6F789", "#F7F9A1", "#A8F342", "#B3F45A", "#BEF671",
+            "#C9F789", "#42F3D3", "#5AF4D9", "#73D6C4", "#8ADDCE", "#A2E4D7", "#449EC8", "#5BAACF", "#73B6D6", "#8AC2DD", "#A2CFE4", "#AF9DE1", "#C9BFE6", "#D1C8EA", "#E0DBF1", "#C379CB",
+            "#DEB8E2", "#E6A7DA", "#EEC5E6", "#E299BD"]);
+          //
+            **********************************************************************************************************************************************************
+            RIGHT SIDEBAR CONTENT
+            ***********************************************************************************************************************************************************
+          .col-lg-3.ds(style='float: right')
+            // COMPLETED ACTIONS DONUTS CHART
+            h3 My Inspirations
+            // First Action
+            .desc
+              .thumb
+                span.badge.bg-theme
+                  i.fa.fa-clock-o
+              .details
+                a(href='https://blacktie.co/dashgum-free-dashboard/') Dashgum!
+                |  The site I am using
+                br
+              .desc
+                .thumb
+                  span.badge.bg-theme
+                    i.fa.fa-clock-o
+                .details
+                  a(href='https://github.com/d3/d3/wiki/Gallery') D3 Graphs
+                  |  I chose the bar graph as it was easy and fit my data well
+                  br
+              .desc
+                .thumb
+                  span.badge.bg-theme
+                    i.fa.fa-clock-o
+                .details
+                  a(href='https://www.gapminder.org/data/') Data
+                  |  Data that we got to choose from to manipulate
+                  br
+            // USERS ONLINE SECTION
+            h3 It's Me!
+            // First Member
+            .desc
+              .thumb
+                img.img-circle(src='assets/img/myFace.jpg', width='35px', height='35px', align='')
+              .details
+                p
+                  a(href='#') Patrick Loots
+                  br
+                  muted Available
+            // CALENDAR
+            #calendar.mb
+              .panel.green-panel.no-margin
+                .panel-body
+                  #date-popover.popover.top(style='cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;')
+                    .arrow
+                    h3.popover-title(style='disadding: none;')
+                    #date-popover-content.popover-content
+                  #my-calendar
+            // / calendar
+          // /col-lg-3
+      // main content end
+      // footer start
+      footer.site-footer(style='margin-bottom: -70px')
+        .text-center
+          | 2014 - Alvarez.is
+      // footer end
+    // js placed at the end of the document so the pages load faster
+    script(src='assets/js/jquery.js')
+    script(src='assets/js/jquery-1.8.3.min.js') 
+    script(src='assets/js/bootstrap.min.js') 
+    //script.(class='include', type='text/javascript', src='assets/js/jquery.dcjqaccordion.2.7.js') 
+    script(src='assets/js/jquery.scrollTo.min.js') 
+    script(src='assets/js/jquery.nicescroll.js', type='text/javascript') 
+    script(src='assets/js/jquery.sparkline.js') 
+    // common script for all pages
+    script(src='assets/js/common-scripts.js') 
+    script(type='text/javascript', src='assets/js/gritter/js/jquery.gritter.js') 
+    script(type='text/javascrip', src='assets/js/gritter-conf.js') 
+    // script for this page
+    script(src='assets/js/sparkline-chart.js') 
+    script(src='assets/js/zabuto_calendar.js') 
+    script(type='text/javascript').
+      $(document).ready(function () {
+      var unique_id = $.gritter.add({
+      // (string | mandatory) the heading of the notification
+      title: 'Welcome to Dashgum!',
+      // (string | mandatory) the text inside the notification
+      text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo. Free version for <a href="http://blacktie.co" target="_blank" style="color:#ffd777">BlackTie.co</a>.',
+      // (string | optional) the image to display on the left
+      image: 'assets/img/ui-sam.jpg',
+      // (bool | optional) if you want it to fade out on its own or just sit there
+      sticky: true,
+      // (int | optional) the time you want it to be alive for before fading out
+      time: '',
+      // (string | optional) the class name you want to apply to that specific message
+      class_name: 'my-sticky-class'
+      });
+      return false;
+      });
+    script(type='application/javascript').
+      $(document).ready(function () {
+      $("#date-popover").popover({html: true, trigger: "manual"});
+      $("#date-popover").hide();
+      $("#date-popover").click(function (e) {
+      $(this).hide();
+      });
+      $("#my-calendar").zabuto_calendar({
+      action: function () {
+      return myDateFunction(this.id, false);
+      },
+      action_nav: function () {
+      return myNavFunction(this.id);
+      },
+      ajax: {
+      url: "show_data.php?action=1",
+      modal: true
+      },
+      legend: [
+      {type: "text", label: "Special event", badge: "00"},
+      {type: "block", label: "Regular event", }
+      ]
+      });
+      });
+      function myNavFunction(id) {
+      $("#date-popover").hide();
+      var nav = $("#" + id).data("navigation");
+      var to = $("#" + id).data("to");
+      //console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+      }
+    // The script that will import the data using JQuery Ajax
+    script.
+      $.ajax({
+      type: 'GET',
+      url: '/display',
+      data: { get_param: 'country' },
+      dataType: 'json',
+      success: function (response) {
+      var columns = ["year"];
+      var data = [];
+      var yearData = {};
+      $.each(response, function(i,e){
+      var country = e.country;
+      columns.push(country);
+      e.data = JSON.parse(e.data);
+      $.each(e.data, function(k,v){
+      if(yearData[k] != null)
+      {
+      yearData[k][country] = v;
+      }
+      else
+      {
+      yearData[k] = {};
+      yearData[k][country] = v;
+      }
+      });
+      });
+      $.each(yearData, function(i,e){
+      var obj = {"year":i};
+      $.each(e, function(k,v){
+      obj[k] = v;
+      });
+      data.push(obj);
+      });
+      $.each(data, function(i,d){
+      for (i = 0, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+      d.total = t;
+      });
+      data["columns"] = columns;
+      var padding = width / columns.length;
+      //var padding = width / columns.length;
+      console.log(padding);
+      var keys = data.columns.slice(1);
+      data.sort(function(a, b) { return b.total - a.total; });
+      x.domain(data.map(function(d) { return d.year; }));
+      y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
+      z.domain(keys);
+      g.append("g").attr("class","patrick")
+      .selectAll("g")
+      .data(d3.stack().keys(keys)(data))
+      .enter().append("g")
+      .attr("fill", function(d) { return z(d.key); })
+      .selectAll("rect")
+      .data(function(d) { return d; })
+      .enter().append("rect")
+      //.attr("x", function(d,i) { return x(d.data.year) - (padding*i); })
+      .attr("x", function(d,i) { return x(d.data.year) - (25 * i); })
+      .attr("y", function(d) { return y(d[1]); })
+      .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+      <!--x.bandwidth is the width of the graph bands-->
+      .attr("width", 30);
+      var newWidth = $("g.patrick")[0].getBoundingClientRect().width;
+      console.log(width, (newWidth / 1.3));
+      var x2 = d3.scaleBand()
+      .rangeRound([0, newWidth ])
+      //value below is 0.3
+      .paddingInner(0.7)
+      .align(0.1);
+      x2.domain(data.map(function(d) { return d.year; }));
+      <!--Manipulates the bottom axis-->
+      g.append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x2));
+      g.append("g")
+      .attr("class", "axis")
+      .call(d3.axisLeft(y).ticks(null, "s"))
+      .append("text")
+      .attr("x", 2)
+      .attr("y", y(y.ticks().pop()) + 0.1)
+      .attr("dy", "0.32em")
+      .attr("fill", "#000")
+      .attr("font-weight", "bold")
+      .attr("text-anchor", "start")
+      .text("Number of Cases Reported");
+      //changed to svg to seperate the graph and the keys
+      var legend = svg.append("g")
+      .attr("x", 200)
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+      .selectAll("g")
+      // removed the reverse .data(keys.slice().reverse())
+      .data(keys.slice())
+      .enter().append("g")
+      //.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+      //Something below to do with getting all the keys to show on the right hand side
+      .attr("transform", function(d, i) {
+      var firstdivide = 40;
+      var seconddivide = 80;
+      var x = 0;
+      if(Math.floor(i/firstdivide) == 0)
+      {
+      //console.log(d, "I am in the first lot");
+      //x = -120;
+      x = -190
+      }
+      else if (Math.floor(i/seconddivide) == 0)
+      {
+      //console.log(d, "I am in the second lot");
+      //x = 0;
+      x = -70
+      }
+      else
+      {
+      //console.log(d, "I am in the third lot");
+      //x = 120;
+      x = +50;
+      }
+      return "translate(" + x +"," + i%40 * 20 + ")";
+      });
+      //for 0 -39 when / 40 your quotient will be 0
+      //for 40 - 79 when / 40 your q will be 1
+      //.attr("x", width - 19) How they did the key plotting, they minus because if it expands beyond the width its out of view
+      legend.append("rect")
+      .attr("x", width - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", z);
+      legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d) { return d; });
+      }
+      });
