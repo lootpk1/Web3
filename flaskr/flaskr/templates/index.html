@@ -312,7 +312,8 @@
 				data["columns"] = columns;
 				
 				//console.log(columns);
-				var padding = width / columns.length;
+				var padding = width / 1.5;
+				//var padding = width / columns.length;
 				
 			  var keys = data.columns.slice(1);
 
@@ -337,10 +338,10 @@
 				  .attr("width", 30);
 				  
 				  var newWidth = $("g.patrick")[0].getBoundingClientRect().width;
-				  console.log(width, (newWidth / 1.2));
+				  console.log(width, (newWidth / 1.3));
 				  
 				  var x2 = d3.scaleBand()
-					.rangeRound([0, (newWidth / 1.2)])
+					.rangeRound([0, (newWidth / 1.3)])
 					//value below is 0.3
 					.paddingInner(0.3)
 					.align(0.1);
