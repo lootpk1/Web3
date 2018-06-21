@@ -337,10 +337,10 @@
 				  .attr("width", 30);
 				  
 				  var newWidth = $("g.patrick")[0].getBoundingClientRect().width;
-				  console.log(width, (newWidth / 1.8));
+				  console.log(width, (newWidth / 1.2));
 				  
 				  var x2 = d3.scaleBand()
-					.rangeRound([0, (newWidth / 1.8)])
+					.rangeRound([0, (newWidth / 1.2)])
 					//value below is 0.3
 					.paddingInner(0.3)
 					.align(0.1);
