@@ -10,7 +10,7 @@
     <title>DASHGUM - FREE Bootstrap Admin Template</title>
 
     <!-- Bootstrap core CSS -->
-	<!-- Changed here to the line below for the access of all the css in the /assests folder -->
+	<!-- Changed here to the line below for the access of all the css in the static/assests folder -->
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/css/bootstrap.css') }}">
     <!--external css-->
     <link href="{{ url_for('static', filename='assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
@@ -94,7 +94,8 @@
 			//g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 			// margin.left has the co-ordinates of the left padding of the keys
 			g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+		
+		//x is in charge of drawing the bars on the graph
 		var x = d3.scaleBand()
 			.rangeRound([0, width])
 			.paddingInner(0.3)
@@ -102,9 +103,12 @@
 
 		var y = d3.scaleLinear()
 			.rangeRound([height, 0]);
-
+		//Var z is the colours of the legend on the side 
 		var z = d3.scaleOrdinal()
-			.range(["#D33636", "#D94F4F", "#DE6868", "#E48181", "#E99B9B", "#EFB4B4", "#F4CDCD", "#FAE6E6", "#F0F342", "#F2F45A", "#F4F671", "#F6F789", "#F7F9A1", "#A8F342", "#B3F45A", "#BEF671","#C9F789", "#42F3D3", "#5AF4D9", "#73D6C4", "#8ADDCE", "#A2E4D7", "#449EC8", "#5BAACF", "#73B6D6", "#8AC2DD", "#A2CFE4", "#AF9DE1", "#C9BFE6", "#D1C8EA", "#E0DBF1","#C379CB","#DEB8E2", "#E6A7DA", "#EEC5E6", "#E299BD"]);
+		/*.domain([1,length])
+      .interpolate(d3.interpolateHcl)*/
+		.range([d3.rgb("#007AFF"), d3.rgb('#FFF500')])
+			/*.range(["#D33636", "#D94F4F", "#DE6868", "#E48181", "#E99B9B", "#EFB4B4", "#F4CDCD", "#FAE6E6", "#F0F342", "#F2F45A", "#F4F671", "#F6F789", "#F7F9A1", "#A8F342", "#B3F45A", "#BEF671","#C9F789", "#42F3D3", "#5AF4D9", "#73D6C4", "#8ADDCE", "#A2E4D7", "#449EC8", "#5BAACF", "#73B6D6", "#8AC2DD", "#A2CFE4", "#AF9DE1", "#C9BFE6", "#D1C8EA", "#E0DBF1","#C379CB","#DEB8E2", "#E6A7DA", "#EEC5E6", "#E299BD"]);*/
 
 		</script>
 
@@ -313,15 +317,16 @@
 				
 			  var keys = data.columns.slice(1);
 				
-				//Function to sort the countries in alphabeticl order
-			  data.sort(function (a,b){
-			   var countryA=a.country; var countryB=b.country;
-			   if (countryA < countryB) return -1;
-			   if (countryA > countryB) return 1;
+				//Function to sort the countries in alphabetical order
+				// Never worked so did not implement 
+			 //  data.sort(function (a,b){
+			 //  var countryA=a.country; var countryB=b.country;
+			 //  if (countryA < countryB) return -1;
+			 //  if (countryA > countryB) return 1;
 			   
-			   return 0;
+			 //  return 0;
 			  
-			  });
+			 // }); 
 			//Data sort fucntion to sort the years by checking which one is a higher number and returning it in order	
 			  data.sort(function(a, b) { return b.year - a.year; });
 			  
@@ -388,6 +393,9 @@
 				.enter().append("g")
 				//.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 				//Something below to do with getting all the keys to show on the right hand side
+				
+				//below is where I seperate the keys on the right of the graph into 3 columns
+				//As soon as the number of keys hit 40 or 80 then it resets the colums and draws the following keys in the next column over
 				  .attr("transform", function(d, i) { 
 					var firstdivide = 40;
 					var seconddivide = 80;
