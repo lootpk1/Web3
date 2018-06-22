@@ -326,7 +326,7 @@
 			  data.sort(function(a, b) { return b.year - a.year; });
 			  
 			  var sequentialScale = d3.scaleSequential()
-  .domain([0, data.length])
+  .domain([0, keys.length])
   .interpolator(d3.interpolateRainbow);
 
   
