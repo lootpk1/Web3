@@ -14,36 +14,9 @@ var users = require('./routes/users');
 /* Following vars are mine, data is the path to the csv file to read in */
 var data = require('./routes/data');
 
-// Start of sequlize config
+// Sequlize config
 const Sequelize = require('sequelize');
-//Have created a db with the name "test"
-/* const sequelize = new Sequelize('test', 'lootpk1', 'P@ssw0rd', {
-  host: 'localhost',
-  //dialect: 'mysql'|'sqlite'|'postgres'|'mssql',
-  dialect: 'postgres',
 
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000
-  },
-
-  // http://docs.sequelizejs.com/manual/tutorial/querying.html#operators
-  operatorsAliases: false
-});
-// You can use the .authenticate() function like this to test the connection.
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
- */
-
-// End of sequlize config 
  
 var app = express();
 
