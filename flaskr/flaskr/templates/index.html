@@ -312,8 +312,20 @@
 				//console.log(padding);
 				
 			  var keys = data.columns.slice(1);
-
+				
+				//Function to sort the countries in alphabeticl order
+			  data.sort(function a, b){
+			   var countryA=a.country, var countryB=b.country;
+			   if (countryA < countryB) return -1;
+			   if (countryA > countryB) return 1;
+			   
+			   return 0;
+			  
+			  });
+			//Data sort fucntion to sort the years by checking which one is a higher number and returning it in order	
 			  data.sort(function(a, b) { return b.year - a.year; });
+			  
+			  
 			  x.domain(data.map(function(d) { return d.year; }));
 			  y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
 			  z.domain(keys);
