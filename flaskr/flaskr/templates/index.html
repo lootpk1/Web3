@@ -325,8 +325,18 @@
 			//Data sort fucntion to sort the years by checking which one is a higher number and returning it in order	
 			  data.sort(function(a, b) { return b.year - a.year; });
 			  
-			  var z = d3.scaleSequential(d3.interpolateRainbow)
-				.domain([0, 900]);
+			  var colorScale = d3.scaleSequential(d3.interpolateInferno)
+				.domain([0, width]);
+				
+				var bars = svg.selectAll(".bars")
+				.data([1,2,3,4,5,6,7,8])
+			  .enter().append("rect")
+				.attr("class", "bars")
+				.attr("x", function(d, i) { return i; })
+				.attr("y", 0)
+				.attr("height", height)
+				.attr("width", 1)
+				.style("fill", function(d, i ) { return colorScale(d); })
 	
 			//  var z = d3.scaleOrdinal()
 			//.domain([1,data.length])
