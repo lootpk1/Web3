@@ -81,6 +81,10 @@ html(lang='en')
             .align(0.1);
             var y = d3.scaleLinear()
             .rangeRound([height, 0]);
+            var z = d3.scaleOrdinal()
+            .range(["#D33636", "#D94F4F", "#DE6868", "#E48181", "#E99B9B", "#EFB4B4", "#F4CDCD", "#FAE6E6", "#F0F342", "#F2F45A", "#F4F671", "#F6F789", "#F7F9A1", "#A8F342", "#B3F45A", "#BEF671",
+            "#C9F789", "#42F3D3", "#5AF4D9", "#73D6C4", "#8ADDCE", "#A2E4D7", "#449EC8", "#5BAACF", "#73B6D6", "#8AC2DD", "#A2CFE4", "#AF9DE1", "#C9BFE6", "#D1C8EA", "#E0DBF1", "#C379CB",
+            "#DEB8E2", "#E6A7DA", "#EEC5E6", "#E299BD"]);
           //
             **********************************************************************************************************************************************************
             RIGHT SIDEBAR CONTENT
@@ -248,12 +252,6 @@ html(lang='en')
       console.log(padding);
       var keys = data.columns.slice(1);
       data.sort(function(a, b) { return b.year - a.year; });
-      
-      var sequentialScale = d3.scaleSequential()
-				.domain([0, keys.length])
-				.interpolator(d3.interpolateRainbow);
-
-
       x.domain(data.map(function(d) { return d.year; }));
       y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
       z.domain(keys);
@@ -261,7 +259,7 @@ html(lang='en')
         .selectAll("g")
         .data(d3.stack().keys(keys)(data))
         .enter().append("g")
-        .attr("fill", function(d) { return sequentialScale(i); })
+        .attr("fill", function(d) { return z(d.key); })
         .selectAll("rect")
         .data(function(d) { return d; })
         .enter().append("rect")
@@ -272,12 +270,12 @@ html(lang='en')
         <!--x.bandwidth is the width of the graph bands-->
         .attr("width", 30);
       var newWidth = $("g.patrick")[0].getBoundingClientRect().width;
-        var x2 = d3.scaleBand()
-					.rangeRound([0, newWidth ])
-					//value below is 0.3
-					.paddingInner(0.7)
-					.align(0.1);
-
+      console.log(width, (newWidth / 1.3));
+      var x2 = d3.scaleBand()
+        .rangeRound([0, newWidth ])
+        //value below is 0.3
+        .paddingInner(0.7)
+        .align(0.1);
       x2.domain(data.map(function(d) { return d.year; }));
       <!--Manipulates the bottom axis-->
       g.append("g")
@@ -338,7 +336,7 @@ html(lang='en')
         .attr("x", width - 19)
         .attr("width", 19)
         .attr("height", 19)
-        .attr("fill", function(d,i){ return sequentialScale(i);});
+        .attr("fill", z);
       legend.append("text")
         .attr("x", width - 24)
         .attr("y", 9.5)
