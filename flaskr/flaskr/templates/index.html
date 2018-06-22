@@ -399,7 +399,7 @@
 				//Something below to do with getting all the keys to show on the right hand side
 				
 				//below is where I seperate the keys on the right of the graph into 3 columns
-				//As soon as the number of keys hit 40 or 80 then it resets the colums and draws the following keys in the next column over
+				//As soon as the number of keys hit 40 or 80 then it resets the columns and draws the following keys in the next column over
 				  .attr("transform", function(d, i) { 
 					var firstdivide = 40;
 					var seconddivide = 80;
@@ -427,10 +427,6 @@
 					return "translate(" + x +"," + i%40 * 20 + ")"; 
 					
 				});
-
-				  
-				  //for 0 -39 when / 40 your quotient will be 0
-				  //for 40 - 79 when / 40 your q will be 1
 				  
 				//.attr("x", width - 19) How they did the key plotting, they minus because if it expands beyond the width its out of view
 			  legend.append("rect")
