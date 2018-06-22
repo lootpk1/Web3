@@ -325,31 +325,14 @@
 			//Data sort fucntion to sort the years by checking which one is a higher number and returning it in order	
 			  data.sort(function(a, b) { return b.year - a.year; });
 			  
-			  var width = 960,
-    height = 500;
-	
-			  var svg2 = d3.select("body")
-    .append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .append("g");
-			  var colorScale = d3.scaleSequential(d3.interpolateInferno)
-    .domain([0, width]);
+			  var sequentialScale = d3.scaleSequential()
+  .domain([0, 100])
+  .interpolator(d3.interpolateRainbow);
 
-var bars = svg2.selectAll(".bars")
-    .data(d3.range(width), function(d) { return d; })
-  .enter().append("rect")
-    .attr("class", "bars")
-    .attr("x", function(d, i) { return i; })
-    .attr("y", 0)
-    .attr("height", height)
-    .attr("width", 1)
-    .style("fill", function(d, i ) { return colorScale(d); })
-
+  
 			  
-			  
-			  var z = d3.scaleSequential(d3.interpolateRainbow)
-				.domain([0, 900]);
+			 /* var z = d3.scaleSequential(d3.interpolateRainbow)
+				.domain([0, 900]);*/
 	
 			//  var z = d3.scaleOrdinal()
 			//.domain([1,data.length])
@@ -360,7 +343,7 @@ var bars = svg2.selectAll(".bars")
 			  
 			  x.domain(data.map(function(d) { return d.year; }));
 			  y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
-			  z.domain(keys);
+			  //z.domain(keys);
 			  
 				
 			  g.append("g").attr("class","patrick")		
@@ -456,7 +439,7 @@ var bars = svg2.selectAll(".bars")
 				  .attr("x", width - 19)
 				  .attr("width", 19)
 				  .attr("height", 19)
-				  .attr("fill", function(d){ return z(d);});
+				  .attr("fill", function(d,i){ return sequentialScale(i);});
 
 			  legend.append("text")
 				  .attr("x", width - 24)
