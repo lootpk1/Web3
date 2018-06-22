@@ -325,16 +325,19 @@
 			//Data sort fucntion to sort the years by checking which one is a higher number and returning it in order	
 			  data.sort(function(a, b) { return b.year - a.year; });
 			  
-			  var z = d3.scaleOrdinal()
-			.domain([1,data.length])
-			.interpolate(d3.interpolateHcl)
-			.range([d3.rgb("#007AFF"), d3.rgb('#FFF500')])
+			  var z = d3.scaleSequential(d3.interpolateInferno)
+    .domain([0, keys.length]);
+	
+			//  var z = d3.scaleOrdinal()
+			//.domain([1,data.length])
+			//.interpolate(d3.interpolateHcl)
+			//.range([d3.rgb("#007AFF"), d3.rgb('#FFF500')])
 			/*.range(["#D33636", "#D94F4F", "#DE6868", "#E48181", "#E99B9B", "#EFB4B4", "#F4CDCD", "#FAE6E6", "#F0F342", "#F2F45A", "#F4F671", "#F6F789", "#F7F9A1", "#A8F342", "#B3F45A", "#BEF671","#C9F789", "#42F3D3", "#5AF4D9", "#73D6C4", "#8ADDCE", "#A2E4D7", "#449EC8", "#5BAACF", "#73B6D6", "#8AC2DD", "#A2CFE4", "#AF9DE1", "#C9BFE6", "#D1C8EA", "#E0DBF1","#C379CB","#DEB8E2", "#E6A7DA", "#EEC5E6", "#E299BD"]);*/
 
 			  
 			  x.domain(data.map(function(d) { return d.year; }));
 			  y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
-			  z.domain(keys);
+			  //z.domain(keys);
 			  
 				
 			  g.append("g").attr("class","patrick")		
