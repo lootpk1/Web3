@@ -273,10 +273,10 @@ html(lang='en')
         .attr("width", 30);
       var newWidth = $("g.patrick")[0].getBoundingClientRect().width;
         var x2 = d3.scaleBand()
-					.rangeRound([0, newWidth ])
+          .rangeRound([0, newWidth ])
 					//value below is 0.3
-					.paddingInner(0.7)
-					.align(0.1);
+          .paddingInner(0.7)
+          .align(0.1);
 
       x2.domain(data.map(function(d) { return d.year; }));
       <!--Manipulates the bottom axis-->
