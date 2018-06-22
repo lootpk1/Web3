@@ -256,7 +256,7 @@ html(lang='en')
 
       x.domain(data.map(function(d) { return d.year; }));
       y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
-      z.domain(keys);
+      //z.domain(keys);
       g.append("g").attr("class","patrick")
         .selectAll("g")
         .data(d3.stack().keys(keys)(data))
